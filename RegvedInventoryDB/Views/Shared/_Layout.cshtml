@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - Inventory Management</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Inventory Management</h1>
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link" href="@Url.Action("Index", "Category")">Categories</a></li>
+                    <li class="nav-item"><a class="nav-link" href="@Url.Action("Index", "Product")">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="@Url.Action("Index", "Vendor")">Vendors</a></li>
+                    <li class="nav-item"><a class="nav-link" href="@Url.Action("Index", "RecycleBin")">Recycle Bin</a></li>
+                </ul>
+            </nav>
+            <hr />
+        </header>
+        <main role="main">
+            @RenderBody()
+        </main>
+        <footer>
+            <hr />
+            <p>&copy; 2025 - Inventory Management</p>
+        </footer>
+    </div>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

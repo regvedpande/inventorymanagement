@@ -1,0 +1,244 @@
+﻿@model RegvedInventoryDB.Models.RecycleBinViewModel
+@{
+    ViewBag.Title = "Recycle Bin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Html.AntiForgeryToken()
+<h2>Recycle Bin</h2>
+<div id="message"></div>
+
+<h3>Soft‑Deleted Products</h3>
+@if (!Model.SoftDeletedProducts.Any())
+{
+    <p>No soft‑deleted products found.</p>
+}
+else
+{
+    <table class="table table-bordered" id="productsTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Manufacture Date</th>
+                <th>Category</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model.SoftDeletedProducts)
+            {
+                <tr data-id="@product.ProductID">
+                    <td>@product.ProductID</td>
+                    <td>@product.ProductName</td>
+                    <td>@product.Description</td>
+                    <td>@product.Price.ToString("C")</td>
+                    <td>@product.Stock</td>
+                    <td>@product.ManufactureDate.ToShortDateString()</td>
+                    <td>@product.CategoryName</td>
+                    <td>
+                        <button class="btn btn-success btn-sm restoreProduct" data-id="@product.ProductID">Restore</button>
+                        <button class="btn btn-danger btn-sm permanentDeleteProduct" data-id="@product.ProductID">Permanent Delete</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<h3>Soft‑Deleted Categories</h3>
+@if (!Model.SoftDeletedCategories.Any())
+{
+    <p>No soft‑deleted categories found.</p>
+}
+else
+{
+    <table class="table table-bordered" id="categoriesTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Category Name</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var category in Model.SoftDeletedCategories)
+            {
+                <tr data-id="@category.CategoryID">
+                    <td>@category.CategoryID</td>
+                    <td>@category.CategoryName</td>
+                    <td>@category.Description</td>
+                    <td>
+                        <button class="btn btn-success btn-sm restoreCategory" data-id="@category.CategoryID">Restore</button>
+                        <button class="btn btn-danger btn-sm permanentDeleteCategory" data-id="@category.CategoryID">Permanent Delete</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<h3>Soft‑Deleted Vendors</h3>
+@if (!Model.SoftDeletedVendors.Any())
+{
+    <p>No soft‑deleted vendors found.</p>
+}
+else
+{
+    <table class="table table-bordered" id="vendorsTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Vendor Name</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var vendor in Model.SoftDeletedVendors)
+            {
+                <tr data-id="@vendor.VendorID">
+                    <td>@vendor.VendorID</td>
+                    <td>@vendor.VendorName</td>
+                    <td>@vendor.Description</td>
+                    <td>
+                        <button class="btn btn-success btn-sm restoreVendor" data-id="@vendor.VendorID">Restore</button>
+                        <button class="btn btn-danger btn-sm permanentDeleteVendor" data-id="@vendor.VendorID">Permanent Delete</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var token = $('input[name="__RequestVerificationToken"]').first().val();
+
+            $(".restoreProduct").click(function () {
+                var id = $(this).data("id");
+                $.ajax({
+                    type: "POST",
+                    url: "/RecycleBin/RestoreProduct/" + id,
+                    data: { __RequestVerificationToken: token },
+                    success: function (response) {
+                        if (response.success) {
+                            $("#message").html("<div class='alert alert-success'>" + response.message + "</div>");
+                            $("tr[data-id='" + id + "']").remove();
+                        } else {
+                            $("#message").html("<div class='alert alert-danger'>" + response.message + "</div>");
+                        }
+                    },
+                    error: function () {
+                        $("#message").html("<div class='alert alert-danger'>Error restoring product.</div>");
+                    }
+                });
+            });
+
+            $(".permanentDeleteProduct").click(function () {
+                var id = $(this).data("id");
+                $.ajax({
+                    type: "POST",
+                    url: "/RecycleBin/PermanentDeleteProduct/" + id,
+                    data: { __RequestVerificationToken: token },
+                    success: function (response) {
+                        if (response.success) {
+                            $("#message").html("<div class='alert alert-success'>" + response.message + "</div>");
+                            $("tr[data-id='" + id + "']").remove();
+                        } else {
+                            $("#message").html("<div class='alert alert-danger'>" + response.message + "</div>");
+                        }
+                    },
+                    error: function () {
+                        $("#message").html("<div class='alert alert-danger'>Error permanently deleting product.</div>");
+                    }
+                });
+            });
+
+            $(".restoreCategory").click(function () {
+                var id = $(this).data("id");
+                $.ajax({
+                    type: "POST",
+                    url: "/RecycleBin/RestoreCategory/" + id,
+                    data: { __RequestVerificationToken: token },
+                    success: function (response) {
+                        if (response.success) {
+                            $("#message").html("<div class='alert alert-success'>" + response.message + "</div>");
+                            $("tr[data-id='" + id + "']").remove();
+                        } else {
+                            $("#message").html("<div class='alert alert-danger'>" + response.message + "</div>");
+                        }
+                    },
+                    error: function () {
+                        $("#message").html("<div class='alert alert-danger'>Error restoring category.</div>");
+                    }
+                });
+            });
+
+            $(".permanentDeleteCategory").click(function () {
+                var id = $(this).data("id");
+                $.ajax({
+                    type: "POST",
+                    url: "/RecycleBin/PermanentDeleteCategory/" + id,
+                    data: { __RequestVerificationToken: token },
+                    success: function (response) {
+                        if (response.success) {
+                            $("#message").html("<div class='alert alert-success'>" + response.message + "</div>");
+                            $("tr[data-id='" + id + "']").remove();
+                        } else {
+                            $("#message").html("<div class='alert alert-danger'>" + response.message + "</div>");
+                        }
+                    },
+                    error: function () {
+                        $("#message").html("<div class='alert alert-danger'>Error permanently deleting category.</div>");
+                    }
+                });
+            });
+
+            $(".restoreVendor").click(function () {
+                var id = $(this).data("id");
+                $.ajax({
+                    type: "POST",
+                    url: "/RecycleBin/RestoreVendor/" + id,
+                    data: { __RequestVerificationToken: token },
+                    success: function (response) {
+                        if (response.success) {
+                            $("#message").html("<div class='alert alert-success'>" + response.message + "</div>");
+                            $("tr[data-id='" + id + "']").remove();
+                        } else {
+                            $("#message").html("<div class='alert alert-danger'>" + response.message + "</div>");
+                        }
+                    },
+                    error: function () {
+                        $("#message").html("<div class='alert alert-danger'>Error restoring vendor.</div>");
+                    }
+                });
+            });
+
+            $(".permanentDeleteVendor").click(function () {
+                var id = $(this).data("id");
+                $.ajax({
+                    type: "POST",
+                    url: "/RecycleBin/PermanentDeleteVendor/" + id,
+                    data: { __RequestVerificationToken: token },
+                    success: function (response) {
+                        if (response.success) {
+                            $("#message").html("<div class='alert alert-success'>" + response.message + "</div>");
+                            $("tr[data-id='" + id + "']").remove();
+                        } else {
+                            $("#message").html("<div class='alert alert-danger'>" + response.message + "</div>");
+                        }
+                    },
+                    error: function () {
+                        $("#message").html("<div class='alert alert-danger'>Error permanently deleting vendor.</div>");
+                    }
+                });
+            });
+        });
+    </script>
+}

@@ -1,0 +1,12 @@
+﻿@model RegvedInventoryDB.Models.ErrorViewModel
+@{
+    ViewBag.Title = "Error";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>An error occurred.</h2>
+<p>Sorry, an unexpected error has occurred. Please try again later.</p>
+@if (!string.IsNullOrEmpty(Model?.RequestId))
+{
+    <p><strong>Request ID:</strong> @Model.RequestId</p>
+}

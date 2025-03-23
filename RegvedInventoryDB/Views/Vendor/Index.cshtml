@@ -1,0 +1,68 @@
+﻿@model IEnumerable<RegvedInventoryDB.Models.Vendor>
+@{
+    ViewBag.Title = "Vendor List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Vendor List</h2>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">@TempData["Success"]</div>
+}
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Add New Vendor</a>
+</p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Vendor ID</th>
+            <th>Vendor Name</th>
+            <th>Description</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Phone Number</th>
+            <th>Quantity</th>
+            <th>Price Per Unit</th>
+            <th>Amount</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (!Model.Any())
+        {
+            <tr>
+                <td colspan="10" class="text-center">No vendors found.</td>
+            </tr>
+        }
+        else
+        {
+            @foreach (var vendor in Model)
+            {
+                <tr>
+                    <td>@vendor.VendorID</td>
+                    <td>@vendor.VendorName</td>
+                    <td>@vendor.Description</td>
+                    <td>@vendor.VendorEmail</td>
+                    <td>@vendor.Address</td>
+                    <td>@vendor.PhoneNumber</td>
+                    <td>@vendor.Quantity</td>
+                    <td>@vendor.PricePerUnit.ToString("C")</td>
+                    <td>@vendor.Amount.ToString("C")</td>
+                    <td>
+                        <a asp-controller="Vendor" asp-action="Details" asp-route-id="@vendor.VendorID" class="btn btn-info btn-sm">Details</a>
+                        <a asp-controller="Vendor" asp-action="Edit" asp-route-id="@vendor.VendorID" class="btn btn-warning btn-sm">Edit</a>
+                        <a asp-controller="Vendor" asp-action="Delete" asp-route-id="@vendor.VendorID" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

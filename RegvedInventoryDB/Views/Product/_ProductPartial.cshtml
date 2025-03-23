@@ -1,0 +1,42 @@
+﻿@model List<RegvedInventoryDB.Models.Product>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Manufacture Date</th>
+            <th>Category</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int i = 1;
+        }
+        @if (!Model.Any())
+        {
+            <tr>
+                <td colspan="7" class="text-center">No products available.</td>
+            </tr>
+        }
+        else
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@i</td>
+                    <td>@item.ProductName</td>
+                    <td>@item.Description</td>
+                    <td>@item.Price.ToString("C")</td>
+                    <td>@item.Stock</td>
+                    <td>@item.ManufactureDate.ToShortDateString()</td>
+                    <td>@item.CategoryName</td>
+                </tr>
+                i++;
+            }
+        }
+    </tbody>
+</table>

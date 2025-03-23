@@ -1,0 +1,95 @@
+﻿@model RegvedInventoryDB.Models.CategoryProductViewModel
+@{
+    ViewBag.Title = "Edit Product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit Product</h2>
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["Error"]
+    </div>
+}
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        <div asp-validation-summary="All" class="text-danger"></div>
+    </div>
+}
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Success"]
+    </div>
+}
+
+<form asp-action="Edit" method="post">
+    @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="ProductModelSingle.ProductID" />
+    <div class="form-group">
+        <label asp-for="ProductModelSingle.ProductName" class="control-label"></label>
+        <input asp-for="ProductModelSingle.ProductName" class="form-control" />
+        <span asp-validation-for="ProductModelSingle.ProductName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ProductModelSingle.Description" class="control-label"></label>
+        <textarea asp-for="ProductModelSingle.Description" class="form-control"></textarea>
+        <span asp-validation-for="ProductModelSingle.Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CategoryID" class="control-label">Category</label>
+        <select asp-for="CategoryID" class="form-control"
+                asp-items="@(new SelectList(Model.CategoryModel, "CategoryID", "CategoryName"))">
+            <option value="">-- Select Category --</option>
+        </select>
+        <span asp-validation-for="CategoryID" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ProductModelSingle.Price" class="control-label"></label>
+        <input asp-for="ProductModelSingle.Price" class="form-control" type="number" step="0.01" min="0" />
+        <span asp-validation-for="ProductModelSingle.Price" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ProductModelSingle.Stock" class="control-label"></label>
+        <input asp-for="ProductModelSingle.Stock" class="form-control" type="number" min="0" />
+        <span asp-validation-for="ProductModelSingle.Stock" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ProductModelSingle.ManufactureDate" class="control-label"></label>
+        <input asp-for="ProductModelSingle.ManufactureDate" class="form-control" type="date" />
+        <span asp-validation-for="ProductModelSingle.ManufactureDate" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        $(document).ready(function () {
+            // Log the initial category value
+            console.log("Initial CategoryID:", $("#CategoryID").val());
+
+            // Monitor category changes
+            $("#CategoryID").change(function() {
+                console.log("Category changed to:", $(this).val());
+                $(this).valid(); // Trigger validation
+            });
+
+            // Add custom validation
+            $.validator.addMethod("categoryRequired", function(value, element) {
+                return value > 0;
+            }, "Please select a valid category.");
+
+            $("#CategoryID").rules("add", {
+                categoryRequired: true
+            });
+        });
+    </script>
+}

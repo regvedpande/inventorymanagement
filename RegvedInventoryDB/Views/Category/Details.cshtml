@@ -1,0 +1,16 @@
+﻿@model RegvedInventoryDB.Models.Category
+@{
+    ViewBag.Title = "Category Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Category Details</h2>
+<div>
+    <div>
+        <strong>Category Name:</strong> @Model.CategoryName
+    </div>
+    <div>
+        <strong>Description:</strong> @Model.Description
+    </div>
+</div>
+<a class="btn btn-secondary" href="@Url.Action("Index", "Category")">Back to List</a>

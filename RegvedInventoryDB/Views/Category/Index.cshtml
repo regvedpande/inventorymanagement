@@ -1,0 +1,37 @@
+﻿@model List<RegvedInventoryDB.Models.Category>
+@{
+    ViewBag.Title = "Category List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Category List</h2>
+<a class="btn btn-primary mb-3" href="@Url.Action("Create", "Category")">Add New Category</a>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Category Name</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int i = 1;
+        }
+        @foreach (var category in Model)
+        {
+            <tr>
+                <td>@i</td>
+                <td>@category.CategoryName</td>
+                <td>@category.Description</td>
+                <td>
+                    <a class="btn btn-info btn-sm" href="@Url.Action("Details", "Category", new { id = category.CategoryID })">Details</a>
+                    <a class="btn btn-warning btn-sm" href="@Url.Action("Edit", "Category", new { id = category.CategoryID })">Edit</a>
+                    <a class="btn btn-danger btn-sm" href="@Url.Action("Delete", "Category", new { id = category.CategoryID })">Delete</a>
+                </td>
+            </tr>
+            i++;
+        }
+    </tbody>
+</table>

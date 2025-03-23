@@ -1,0 +1,964 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\services\\recyclebinservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\services\\recyclebinservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\services\\ivendorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\services\\ivendorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\services\\iproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\services\\iproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\services\\icategoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\services\\icategoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\services\\categoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\services\\categoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\models\\categoryproductviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\models\\categoryproductviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\filters\\customresultfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\filters\\customresultfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\filters\\customexceptionfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\filters\\customexceptionfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\filters\\customauthorizationfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\filters\\customauthorizationfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\filters\\customactionfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\filters\\customactionfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\dal\\productdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\dal\\productdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\dal\\inventoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\dal\\inventoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\controllers\\recyclebincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\controllers\\recyclebincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\models\\vendorcategoryproductviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\models\\vendorcategoryproductviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\controllers\\vendorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\controllers\\vendorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\services\\vendorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\services\\vendorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\models\\vendor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\models\\vendor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\models\\responsemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\models\\responsemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\models\\recyclebinviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\models\\recyclebinviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\views\\vendor\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\views\\vendor\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\views\\vendor\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\views\\vendor\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\views\\product\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\views\\product\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\views\\vendor\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\views\\vendor\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\views\\vendor\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\views\\vendor\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\views\\vendor\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\views\\vendor\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\views\\product\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\views\\product\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\views\\product\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\views\\product\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\views\\category\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\views\\category\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\views\\product\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\views\\product\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\views\\product\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\views\\product\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\views\\product\\_productpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\views\\product\\_productpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\services\\irecyclebinservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\services\\irecyclebinservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\views\\recyclebin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\views\\recyclebin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\views\\category\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\views\\category\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\views\\category\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\views\\category\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\views\\category\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\views\\category\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\views\\category\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\views\\category\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|c:\\users\\regre\\documents\\regvedinventorydb\\regvedinventorydb\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0D7E9ECA-D4E5-4117-B794-EEC3E8DEC5E9}|RegvedInventoryDB\\RegvedInventoryDB.csproj|solutionrelative:regvedinventorydb\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 16,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "VendorService.cs",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Services\\VendorService.cs",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Services\\VendorService.cs",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Services\\VendorService.cs",
+              "RelativeToolTip": "RegvedInventoryDB\\Services\\VendorService.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAuwD4AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-19T11:29:14.157Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:3:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:4:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:5:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CustomExceptionFilter.cs",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Filters\\CustomExceptionFilter.cs",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Filters\\CustomExceptionFilter.cs",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Filters\\CustomExceptionFilter.cs",
+              "RelativeToolTip": "RegvedInventoryDB\\Filters\\CustomExceptionFilter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T10:07:11.134Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CustomResultFilter.cs",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Filters\\CustomResultFilter.cs",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Filters\\CustomResultFilter.cs",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Filters\\CustomResultFilter.cs",
+              "RelativeToolTip": "RegvedInventoryDB\\Filters\\CustomResultFilter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T10:06:21.459Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CategoryProductViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Models\\CategoryProductViewModel.cs",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Models\\CategoryProductViewModel.cs",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Models\\CategoryProductViewModel.cs",
+              "RelativeToolTip": "RegvedInventoryDB\\Models\\CategoryProductViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-18T11:30:19.796Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Category.cs",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Models\\Category.cs",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Models\\Category.cs",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Models\\Category.cs",
+              "RelativeToolTip": "RegvedInventoryDB\\Models\\Category.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T09:48:09.043Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CategoryService.cs",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Services\\CategoryService.cs",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Services\\CategoryService.cs",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Services\\CategoryService.cs",
+              "RelativeToolTip": "RegvedInventoryDB\\Services\\CategoryService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-19T10:14:19.096Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ICategoryService.cs",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Services\\ICategoryService.cs",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Services\\ICategoryService.cs",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Services\\ICategoryService.cs",
+              "RelativeToolTip": "RegvedInventoryDB\\Services\\ICategoryService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-19T10:13:55.718Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IProductService.cs",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Services\\IProductService.cs",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Services\\IProductService.cs",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Services\\IProductService.cs",
+              "RelativeToolTip": "RegvedInventoryDB\\Services\\IProductService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-19T11:26:21.091Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IVendorService.cs",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Services\\IVendorService.cs",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Services\\IVendorService.cs",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Services\\IVendorService.cs",
+              "RelativeToolTip": "RegvedInventoryDB\\Services\\IVendorService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-19T11:26:43.749Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RecycleBinService.cs",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Services\\RecycleBinService.cs",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Services\\RecycleBinService.cs",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Services\\RecycleBinService.cs",
+              "RelativeToolTip": "RegvedInventoryDB\\Services\\RecycleBinService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-19T11:29:37.708Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CustomAuthorizationFilter.cs",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Filters\\CustomAuthorizationFilter.cs",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Filters\\CustomAuthorizationFilter.cs",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Filters\\CustomAuthorizationFilter.cs",
+              "RelativeToolTip": "RegvedInventoryDB\\Filters\\CustomAuthorizationFilter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T10:05:23.581Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CustomActionFilter.cs",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Filters\\CustomActionFilter.cs",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Filters\\CustomActionFilter.cs",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Filters\\CustomActionFilter.cs",
+              "RelativeToolTip": "RegvedInventoryDB\\Filters\\CustomActionFilter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T10:05:49.689Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ProductDAL.CS",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\DAL\\ProductDAL.CS",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\DAL\\ProductDAL.CS",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\DAL\\ProductDAL.CS",
+              "RelativeToolTip": "RegvedInventoryDB\\DAL\\ProductDAL.CS",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T09:49:00.372Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "InventoryRepository.cs",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\DAL\\InventoryRepository.cs",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\DAL\\InventoryRepository.cs",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\DAL\\InventoryRepository.cs",
+              "RelativeToolTip": "RegvedInventoryDB\\DAL\\InventoryRepository.cs",
+              "ViewState": "AgIAAGUDAAAAAAAAAAAkwFYDAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T10:04:34.509Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "RecycleBinController.cs",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Controllers\\RecycleBinController.cs",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Controllers\\RecycleBinController.cs",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Controllers\\RecycleBinController.cs",
+              "RelativeToolTip": "RegvedInventoryDB\\Controllers\\RecycleBinController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAH0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-15T06:23:57.087Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Controllers\\ProductController.cs",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "RegvedInventoryDB\\Controllers\\ProductController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIUAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T09:49:41.982Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "CategoryController.cs",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Controllers\\CategoryController.cs",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Controllers\\CategoryController.cs",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Controllers\\CategoryController.cs",
+              "RelativeToolTip": "RegvedInventoryDB\\Controllers\\CategoryController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T10:08:27.502Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "VendorCategoryProductViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Models\\VendorCategoryProductViewModel.cs",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Models\\VendorCategoryProductViewModel.cs",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Models\\VendorCategoryProductViewModel.cs",
+              "RelativeToolTip": "RegvedInventoryDB\\Models\\VendorCategoryProductViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-21T07:16:59.146Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "VendorController.cs",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Controllers\\VendorController.cs",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Controllers\\VendorController.cs",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Controllers\\VendorController.cs",
+              "RelativeToolTip": "RegvedInventoryDB\\Controllers\\VendorController.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAYwAIAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-23T14:50:05.597Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "RegvedInventoryDB\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T11:23:41.224Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\appsettings.json",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\appsettings.json",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\appsettings.json",
+              "RelativeToolTip": "RegvedInventoryDB\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-02-11T09:29:32.137Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "ErrorViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Models\\ErrorViewModel.cs",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Models\\ErrorViewModel.cs",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Models\\ErrorViewModel.cs",
+              "RelativeToolTip": "RegvedInventoryDB\\Models\\ErrorViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T11:23:09.956Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Vendor.cs",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Models\\Vendor.cs",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Models\\Vendor.cs",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Models\\Vendor.cs",
+              "RelativeToolTip": "RegvedInventoryDB\\Models\\Vendor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-17T06:20:18.674Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "ResponseModel.cs",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Models\\ResponseModel.cs",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Models\\ResponseModel.cs",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Models\\ResponseModel.cs",
+              "RelativeToolTip": "RegvedInventoryDB\\Models\\ResponseModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T10:04:08.108Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "RecycleBinViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Models\\RecycleBinViewModel.cs",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Models\\RecycleBinViewModel.cs",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Models\\RecycleBinViewModel.cs",
+              "RelativeToolTip": "RegvedInventoryDB\\Models\\RecycleBinViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-15T06:23:19.605Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Models\\Product.cs",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Models\\Product.cs",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Models\\Product.cs",
+              "RelativeToolTip": "RegvedInventoryDB\\Models\\Product.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T09:47:23.07Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\Product\\Index.cshtml",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Views\\Product\\Index.cshtml",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\Product\\Index.cshtml",
+              "RelativeToolTip": "RegvedInventoryDB\\Views\\Product\\Index.cshtml",
+              "ViewState": "AgIAABQAAAAAAAAAAAAIwBkAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-11T09:50:51.453Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "RegvedInventoryDB\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-11T10:08:55.293Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Program.cs",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Program.cs",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Program.cs",
+              "RelativeToolTip": "RegvedInventoryDB\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T10:02:05.54Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\Vendor\\Details.cshtml",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Views\\Vendor\\Details.cshtml",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\Vendor\\Details.cshtml",
+              "RelativeToolTip": "RegvedInventoryDB\\Views\\Vendor\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-17T06:30:34.819Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\Vendor\\Edit.cshtml",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Views\\Vendor\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\Vendor\\Edit.cshtml",
+              "RelativeToolTip": "RegvedInventoryDB\\Views\\Vendor\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-17T06:30:15.119Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\Vendor\\Delete.cshtml",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Views\\Vendor\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\Vendor\\Delete.cshtml",
+              "RelativeToolTip": "RegvedInventoryDB\\Views\\Vendor\\Delete.cshtml",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAADgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-17T06:30:57.256Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\Vendor\\Index.cshtml",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Views\\Vendor\\Index.cshtml",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\Vendor\\Index.cshtml",
+              "RelativeToolTip": "RegvedInventoryDB\\Views\\Vendor\\Index.cshtml",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAgwDgAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-17T06:26:53.673Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\Vendor\\Create.cshtml",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Views\\Vendor\\Create.cshtml",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\Vendor\\Create.cshtml",
+              "RelativeToolTip": "RegvedInventoryDB\\Views\\Vendor\\Create.cshtml",
+              "ViewState": "AgIAAG0AAAAAAAAAAAAAAJkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-17T06:30:01.976Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Properties\\launchSettings.json",
+              "RelativeToolTip": "RegvedInventoryDB\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-02-23T12:23:30.953Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\Product\\Create.cshtml",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Views\\Product\\Create.cshtml",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\Product\\Create.cshtml",
+              "RelativeToolTip": "RegvedInventoryDB\\Views\\Product\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-12T09:25:24.26Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\Product\\Edit.cshtml",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Views\\Product\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\Product\\Edit.cshtml",
+              "RelativeToolTip": "RegvedInventoryDB\\Views\\Product\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-12T09:25:56.677Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\Category\\Create.cshtml",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Views\\Category\\Create.cshtml",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\Category\\Create.cshtml",
+              "RelativeToolTip": "RegvedInventoryDB\\Views\\Category\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-11T11:18:18.948Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "ProductService.cs",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Services\\ProductService.cs",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Services\\ProductService.cs",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Services\\ProductService.cs",
+              "RelativeToolTip": "RegvedInventoryDB\\Services\\ProductService.cs",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAcwH4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-19T11:28:40.094Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\Product\\Details.cshtml",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Views\\Product\\Details.cshtml",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\Product\\Details.cshtml",
+              "RelativeToolTip": "RegvedInventoryDB\\Views\\Product\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAABVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-12T09:26:46.827Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\Product\\Delete.cshtml",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Views\\Product\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\Product\\Delete.cshtml",
+              "RelativeToolTip": "RegvedInventoryDB\\Views\\Product\\Delete.cshtml",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAmwDUAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-12T09:26:23.039Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "_ProductPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\Product\\_ProductPartial.cshtml",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Views\\Product\\_ProductPartial.cshtml",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\Product\\_ProductPartial.cshtml",
+              "RelativeToolTip": "RegvedInventoryDB\\Views\\Product\\_ProductPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-12T09:27:12.567Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "IRecycleBinService.cs",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Services\\IRecycleBinService.cs",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Services\\IRecycleBinService.cs",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Services\\IRecycleBinService.cs",
+              "RelativeToolTip": "RegvedInventoryDB\\Services\\IRecycleBinService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-19T11:27:39.717Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "_ValidationScriptsPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeToolTip": "RegvedInventoryDB\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-12T09:20:56.524Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Views\\_ViewStart.cshtml",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\_ViewStart.cshtml",
+              "RelativeToolTip": "RegvedInventoryDB\\Views\\_ViewStart.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-13T04:03:36.399Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Views\\_ViewImports.cshtml",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "RegvedInventoryDB\\Views\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-13T04:03:21.829Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\RecycleBin\\Index.cshtml",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Views\\RecycleBin\\Index.cshtml",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\RecycleBin\\Index.cshtml",
+              "RelativeToolTip": "RegvedInventoryDB\\Views\\RecycleBin\\Index.cshtml",
+              "ViewState": "AgIAAMsAAAAAAAAAAIBJwPQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-15T06:24:47.289Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "RegvedInventoryDB\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-11T11:29:00.328Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\Category\\Index.cshtml",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Views\\Category\\Index.cshtml",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\Category\\Index.cshtml",
+              "RelativeToolTip": "RegvedInventoryDB\\Views\\Category\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-12T09:22:04.575Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\Category\\Edit.cshtml",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Views\\Category\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\Category\\Edit.cshtml",
+              "RelativeToolTip": "RegvedInventoryDB\\Views\\Category\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-11T11:18:47.279Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\Category\\Details.cshtml",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Views\\Category\\Details.cshtml",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\Category\\Details.cshtml",
+              "RelativeToolTip": "RegvedInventoryDB\\Views\\Category\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-11T11:19:34.557Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\Category\\Delete.cshtml",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Views\\Category\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\Category\\Delete.cshtml",
+              "RelativeToolTip": "RegvedInventoryDB\\Views\\Category\\Delete.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-11T11:19:13.606Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "site.css",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\wwwroot\\css\\site.css",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "RegvedInventoryDB\\wwwroot\\css\\site.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-02-15T06:38:35.985Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "site.js",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\wwwroot\\js\\site.js",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\wwwroot\\js\\site.js",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\wwwroot\\js\\site.js",
+              "RelativeToolTip": "RegvedInventoryDB\\wwwroot\\js\\site.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-02-15T06:51:58.644Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "Privacy.cshtml",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\Home\\Privacy.cshtml",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Views\\Home\\Privacy.cshtml",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\Home\\Privacy.cshtml",
+              "RelativeToolTip": "RegvedInventoryDB\\Views\\Home\\Privacy.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-12T11:06:26.781Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "Error.cshtml",
+              "DocumentMoniker": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\Shared\\Error.cshtml",
+              "RelativeDocumentMoniker": "RegvedInventoryDB\\Views\\Shared\\Error.cshtml",
+              "ToolTip": "C:\\Users\\regre\\Documents\\RegvedInventoryDB\\RegvedInventoryDB\\Views\\Shared\\Error.cshtml",
+              "RelativeToolTip": "RegvedInventoryDB\\Views\\Shared\\Error.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-12T09:21:20.688Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

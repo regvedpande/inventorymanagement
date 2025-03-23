@@ -1,0 +1,52 @@
+﻿@model RegvedInventoryDB.Models.Vendor
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Vendor Details</h2>
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["Error"]
+    </div>
+}
+
+<div>
+    <div>
+        <strong>Vendor ID:</strong> @Model.VendorID
+    </div>
+    <div>
+        <strong>Vendor Name:</strong> @Model.VendorName
+    </div>
+    <div>
+        <strong>Description:</strong> @Model.Description
+    </div>
+    <div>
+        <strong>Email:</strong> @Model.VendorEmail
+    </div>
+    <div>
+        <strong>Address:</strong> @Model.Address
+    </div>
+    <div>
+        <strong>Phone Number:</strong> @Model.PhoneNumber
+    </div>
+    <div>
+        <strong>Category ID:</strong> @Model.CategoryID
+    </div>
+    <div>
+        <strong>Product ID:</strong> @Model.ProductID
+    </div>
+    <div>
+        <strong>Quantity:</strong> @Model.Quantity
+    </div>
+    <div>
+        <strong>Price Per Unit:</strong> @Model.PricePerUnit.ToString("C")
+    </div>
+    <div>
+        <strong>Amount:</strong> @Model.Amount.ToString("C")
+    </div>
+</div>
+<a class="btn btn-secondary" asp-action="Index">Back to List</a>
+<a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.VendorID">Edit</a>
