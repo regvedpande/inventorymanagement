@@ -1,5 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using RegvedInventoryDB.Filters;
 using RegvedInventoryDB.Models;
 using RegvedInventoryDB.Services;
 using System;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 namespace RegvedInventoryDB.Controllers
 {
     [Route("Vendor")]
+    [CustomAuthorizationFilter]
     public class VendorController : Controller
     {
         private readonly IVendorService _vendorService;
@@ -23,27 +25,24 @@ namespace RegvedInventoryDB.Controllers
             IProductService productService,
             ILogger<VendorController> logger)
         {
-            _logger = logger;
-            _logger.LogInformation("VendorController constructor called");
-            _vendorService = vendorService ?? throw new ArgumentNullException(nameof(vendorService));
+            _vendorService   = vendorService   ?? throw new ArgumentNullException(nameof(vendorService));
             _categoryService = categoryService ?? throw new ArgumentNullException(nameof(categoryService));
-            _productService = productService ?? throw new ArgumentNullException(nameof(productService));
+            _productService  = productService  ?? throw new ArgumentNullException(nameof(productService));
+            _logger          = logger          ?? throw new ArgumentNullException(nameof(logger));
         }
 
         [HttpGet("Index")]
         public async Task<IActionResult> Index()
         {
-            _logger.LogInformation("Index action called");
             try
             {
                 var vendors = await _vendorService.GetVendorsAsync();
-                _logger.LogInformation($"Index: Retrieved {vendors.Count} vendors");
                 return View(vendors);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error retrieving vendors");
-                TempData["Error"] = "Error loading vendor list";
+                _logger.LogError(ex, "Error retrieving vendor list");
+                TempData["Error"] = "Error loading vendor list.";
                 return View(new List<Vendor>());
             }
         }
@@ -51,29 +50,34 @@ namespace RegvedInventoryDB.Controllers
         [HttpGet("Create")]
         public async Task<IActionResult> Create()
         {
-            _logger.LogInformation("Create GET action called");
             try
             {
                 var categories = await _categoryService.GetCategoriesAsync();
-                var products = await _productService.GetProductsAsync();
-                if (!categories.Any() || !products.Any())
+                var products   = await _productService.GetProductsAsync();
+
+                if (!categories.Any())
                 {
-                    _logger.LogWarning("No categories or products available");
-                    TempData["Error"] = "Please add categories and products first.";
+                    TempData["Error"] = "Please add at least one category before creating a vendor.";
                     return RedirectToAction(nameof(Index));
                 }
+                if (!products.Any())
+                {
+                    TempData["Error"] = "Please add at least one product before creating a vendor.";
+                    return RedirectToAction(nameof(Index));
+                }
+
                 return View(new VendorCategoryProductViewModel
                 {
-                    CategoryModel = categories,
-                    ProductModel = products,
-                    VendorModel = new Vendor(),
+                    CategoryModel   = categories,
+                    ProductModel    = products,
+                    VendorModel     = new Vendor(),
                     SelectedCategory = null,
-                    SelectedProduct = null
+                    SelectedProduct  = null
                 });
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error loading Create form");
+                _logger.LogError(ex, "Error loading vendor create form");
                 TempData["Error"] = "Error loading the creation form.";
                 return RedirectToAction(nameof(Index));
             }
@@ -83,192 +87,190 @@ namespace RegvedInventoryDB.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(VendorCategoryProductViewModel model)
         {
-            _logger.LogInformation("Create POST action called");
             try
             {
                 model.CategoryModel = await _categoryService.GetCategoriesAsync();
-                model.ProductModel = await _productService.GetProductsAsync();
-                if (!ModelState.IsValid || !model.SelectedCategory.HasValue || !model.SelectedProduct.HasValue)
+                model.ProductModel  = await _productService.GetProductsAsync();
+
+                if (!model.SelectedCategory.HasValue || !model.SelectedProduct.HasValue)
                 {
-                    _logger.LogWarning("Create validation failed");
-                    if (!model.SelectedCategory.HasValue || !model.SelectedProduct.HasValue)
-                        ModelState.AddModelError("", "Please select a category and product.");
+                    ModelState.AddModelError(string.Empty, "Please select both a category and a product.");
                     return View(model);
                 }
+
+                if (!ModelState.IsValid)
+                    return View(model);
+
                 var vendor = new Vendor
                 {
-                    VendorName = model.VendorModel.VendorName,
-                    Description = model.VendorModel.Description,
-                    VendorEmail = model.VendorModel.VendorEmail,
-                    Address = model.VendorModel.Address,
-                    PhoneNumber = model.VendorModel.PhoneNumber,
-                    CategoryID = model.SelectedCategory.Value,
-                    ProductID = model.SelectedProduct.Value,
-                    Quantity = model.VendorModel.Quantity,
+                    VendorName   = model.VendorModel.VendorName,
+                    Description  = model.VendorModel.Description,
+                    VendorEmail  = model.VendorModel.VendorEmail,
+                    Address      = model.VendorModel.Address,
+                    PhoneNumber  = model.VendorModel.PhoneNumber,
+                    CategoryID   = model.SelectedCategory.Value,
+                    ProductID    = model.SelectedProduct.Value,
+                    Quantity     = model.VendorModel.Quantity,
                     PricePerUnit = model.VendorModel.PricePerUnit,
-                    Amount = model.VendorModel.Quantity * model.VendorModel.PricePerUnit
+                    Amount       = model.VendorModel.Quantity * model.VendorModel.PricePerUnit
                 };
-                if (vendor.Amount <= 0)
-                {
-                    ModelState.AddModelError("VendorModel.PricePerUnit", "Amount must be greater than 0.");
-                    return View(model);
-                }
+
                 var success = await _vendorService.CreateVendorAsync(vendor);
-                if (!success)
+                if (success)
                 {
-                    TempData["Error"] = "Failed to save vendor.";
-                    return View(model);
+                    TempData["Success"] = "Vendor created successfully.";
+                    return RedirectToAction(nameof(Index));
                 }
-                TempData["Success"] = "Vendor created successfully!";
-                return RedirectToAction(nameof(Index));
+
+                TempData["Error"] = "Failed to save vendor.";
+                return View(model);
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error creating vendor");
                 TempData["Error"] = "An error occurred while creating the vendor.";
+                model.CategoryModel = await _categoryService.GetCategoriesAsync();
+                model.ProductModel  = await _productService.GetProductsAsync();
                 return View(model);
             }
         }
 
-        [HttpGet("Details{id}")]
-        public async Task<IActionResult> Details([FromQuery] int id)
+        [HttpGet("Details/{id}")]
+        public async Task<IActionResult> Details(int id)
         {
-            _logger.LogInformation("Details action called for ID: {Id}", id);
             try
             {
                 var vendor = await _vendorService.GetVendorByIdAsync(id);
                 if (vendor == null)
                 {
-                    _logger.LogWarning("Vendor not found for ID: {Id}", id);
+                    _logger.LogWarning("Vendor not found. ID: {Id}", id);
                     return NotFound();
                 }
                 return View(vendor);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error viewing details for ID: {Id}", id);
+                _logger.LogError(ex, "Error loading vendor details for ID {Id}", id);
                 TempData["Error"] = "Error loading vendor details.";
                 return RedirectToAction(nameof(Index));
             }
         }
 
-        [HttpGet("Edit")]
-        public async Task<IActionResult> Edit([FromQuery] int id)
+        [HttpGet("Edit/{id}")]
+        public async Task<IActionResult> Edit(int id)
         {
-            _logger.LogInformation("Edit GET action called for ID: {Id}", id);
             try
             {
                 var vendor = await _vendorService.GetVendorByIdAsync(id);
                 if (vendor == null)
                 {
-                    _logger.LogWarning("Vendor not found for ID: {Id}", id);
+                    _logger.LogWarning("Vendor not found for edit. ID: {Id}", id);
                     return NotFound();
                 }
+
                 return View(new VendorCategoryProductViewModel
                 {
-                    VendorModel = vendor,
-                    CategoryModel = await _categoryService.GetCategoriesAsync(),
-                    ProductModel = await _productService.GetProductsAsync(),
+                    VendorModel      = vendor,
+                    CategoryModel    = await _categoryService.GetCategoriesAsync(),
+                    ProductModel     = await _productService.GetProductsAsync(),
                     SelectedCategory = vendor.CategoryID,
-                    SelectedProduct = vendor.ProductID
+                    SelectedProduct  = vendor.ProductID
                 });
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error loading Edit form for ID: {Id}", id);
+                _logger.LogError(ex, "Error loading edit form for vendor ID {Id}", id);
                 TempData["Error"] = "Error loading edit form.";
                 return RedirectToAction(nameof(Index));
             }
         }
 
-        [HttpPost("Edit")]
+        [HttpPost("Edit/{id}")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit([FromQuery] int id, VendorCategoryProductViewModel model)
+        public async Task<IActionResult> Edit(int id, VendorCategoryProductViewModel model)
         {
-            _logger.LogInformation("Edit POST action called for ID: {Id}", id);
             if (id != model.VendorModel.VendorID)
             {
-                _logger.LogWarning("ID mismatch: {RouteId} vs {ModelId}", id, model.VendorModel.VendorID);
-                return BadRequest("ID mismatch");
+                _logger.LogWarning("Vendor ID mismatch: route={RouteId}, model={ModelId}", id, model.VendorModel.VendorID);
+                return BadRequest("ID mismatch.");
             }
+
             try
             {
                 model.CategoryModel = await _categoryService.GetCategoriesAsync();
-                model.ProductModel = await _productService.GetProductsAsync();
-                if (!ModelState.IsValid || !model.SelectedCategory.HasValue || !model.SelectedProduct.HasValue)
+                model.ProductModel  = await _productService.GetProductsAsync();
+
+                if (!model.SelectedCategory.HasValue || !model.SelectedProduct.HasValue)
                 {
-                    _logger.LogWarning("Edit validation failed");
-                    if (!model.SelectedCategory.HasValue || !model.SelectedProduct.HasValue)
-                        ModelState.AddModelError("", "Please select a category and product.");
+                    ModelState.AddModelError(string.Empty, "Please select both a category and a product.");
                     return View(model);
                 }
-                var vendor = model.VendorModel;
+
+                if (!ModelState.IsValid)
+                    return View(model);
+
+                var vendor       = model.VendorModel;
                 vendor.CategoryID = model.SelectedCategory.Value;
-                vendor.ProductID = model.SelectedProduct.Value;
-                vendor.Amount = vendor.Quantity * vendor.PricePerUnit;
-                if (vendor.Amount <= 0)
-                {
-                    ModelState.AddModelError("VendorModel.PricePerUnit", "Amount must be positive");
-                    return View(model);
-                }
+                vendor.ProductID  = model.SelectedProduct.Value;
+                vendor.Amount     = vendor.Quantity * vendor.PricePerUnit;
+
                 var success = await _vendorService.UpdateVendorAsync(vendor);
-                if (!success)
+                if (success)
                 {
-                    TempData["Error"] = "Failed to update vendor.";
-                    return View(model);
+                    TempData["Success"] = "Vendor updated successfully.";
+                    return RedirectToAction(nameof(Index));
                 }
-                TempData["Success"] = "Vendor updated successfully!";
-                return RedirectToAction(nameof(Index));
+
+                TempData["Error"] = "Failed to update vendor.";
+                return View(model);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error updating vendor: {Id}", id);
-                TempData["Error"] = "Critical error updating vendor.";
+                _logger.LogError(ex, "Error updating vendor ID {Id}", id);
+                TempData["Error"] = "An error occurred while updating the vendor.";
                 model.CategoryModel = await _categoryService.GetCategoriesAsync();
-                model.ProductModel = await _productService.GetProductsAsync();
+                model.ProductModel  = await _productService.GetProductsAsync();
                 return View(model);
             }
         }
 
-        [HttpGet("Delete")]
-        public async Task<IActionResult> Delete([FromQuery] int id)
+        [HttpGet("Delete/{id}")]
+        public async Task<IActionResult> Delete(int id)
         {
-            _logger.LogInformation("Delete GET action called for ID: {Id}", id);
             try
             {
                 var vendor = await _vendorService.GetVendorByIdAsync(id);
                 if (vendor == null)
                 {
-                    _logger.LogWarning("Vendor not found for ID: {Id}", id);
+                    _logger.LogWarning("Vendor not found for delete. ID: {Id}", id);
                     return NotFound();
                 }
                 return View(vendor);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error loading Delete view for ID: {Id}", id);
+                _logger.LogError(ex, "Error loading delete page for vendor ID {Id}", id);
                 TempData["Error"] = "Error loading deletion page.";
                 return RedirectToAction(nameof(Index));
             }
         }
 
-        [HttpPost("Delete")]
+        [HttpPost("Delete/{id}")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Delete([FromQuery] int id, bool permanent = false)
+        public async Task<IActionResult> Delete(int id, bool permanent = false)
         {
-            _logger.LogInformation("Delete POST action called for ID: {Id}, Permanent: {Permanent}", id, permanent);
             try
             {
                 var success = await _vendorService.DeleteVendorAsync(id, permanent);
                 TempData[success ? "Success" : "Error"] = success
-                    ? $"Vendor {(permanent ? "permanently deleted" : "moved to recycle bin")}"
-                    : "Deletion failed";
+                    ? (permanent ? "Vendor permanently deleted." : "Vendor moved to recycle bin.")
+                    : "Deletion failed.";
                 return RedirectToAction(nameof(Index));
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error deleting vendor: {Id}", id);
-                TempData["Error"] = "Critical deletion error.";
+                _logger.LogError(ex, "Error deleting vendor ID {Id}", id);
+                TempData["Error"] = "An error occurred while deleting the vendor.";
                 return RedirectToAction(nameof(Index));
             }
         }

@@ -47,7 +47,7 @@ namespace RegvedInventoryDB.Services
             }
         }
 
-        public async Task<Vendor> GetVendorByIdAsync(int id)
+        public async Task<Vendor?> GetVendorByIdAsync(int id)
         {
             try
             {

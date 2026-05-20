@@ -1,26 +1,49 @@
-﻿@model RegvedInventoryDB.Models.Category
+@model RegvedInventoryDB.Models.Category
 @{
     ViewBag.Title = "Delete Category";
+    ViewBag.BreadcrumbParent = "Categories";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Delete Category</h2>
-<div>
-    <h3>Are you sure you want to delete this category?</h3>
-    <div>
-        <strong>Category Name:</strong> @Model.CategoryName
-    </div>
-    <div>
-        <strong>Description:</strong> @Model.Description
+<div class="row justify-content-center">
+    <div class="col-md-7">
+        <div class="form-card">
+            <div class="text-center mb-4">
+                <div class="stat-icon bg-danger-subtle text-danger mx-auto mb-3" style="width:64px;height:64px;border-radius:50%;">
+                    <i class="bi bi-exclamation-triangle-fill fs-3"></i>
+                </div>
+                <h5 class="fw-bold">Delete Category?</h5>
+                <p class="text-muted small">
+                    This action will move the category to the Recycle Bin.<br/>
+                    Check <strong>Permanently delete</strong> to remove it entirely.
+                </p>
+            </div>
+
+            <div class="bg-light rounded-3 p-3 mb-4">
+                <dl class="row mb-0 small">
+                    <dt class="col-sm-4 text-muted">Category Name</dt>
+                    <dd class="col-sm-8 fw-semibold">@Model.CategoryName</dd>
+                    <dt class="col-sm-4 text-muted">Description</dt>
+                    <dd class="col-sm-8">@(string.IsNullOrWhiteSpace(Model.Description) ? "—" : Model.Description)</dd>
+                </dl>
+            </div>
+
+            <form asp-action="Delete" method="post">
+                @Html.AntiForgeryToken()
+                <input type="hidden" asp-for="CategoryID" />
+                <div class="form-check mb-4">
+                    <input class="form-check-input" type="checkbox" name="permanent" id="permanent" />
+                    <label class="form-check-label text-danger fw-medium" for="permanent">
+                        <i class="bi bi-exclamation-octagon me-1"></i>Permanently delete (cannot be undone)
+                    </label>
+                </div>
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-danger">
+                        <i class="bi bi-trash me-1"></i> Delete
+                    </button>
+                    <a asp-action="Index" class="btn btn-outline-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
-<form asp-action="Delete" method="post">
-    @Html.AntiForgeryToken()
-    <input type="hidden" asp-for="CategoryID" />
-    <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="permanent" id="permanent">
-        <label class="form-check-label" for="permanent">Permanently delete</label>
-    </div>
-    <button type="submit" class="btn btn-danger">Delete</button>
-    <a class="btn btn-secondary" href="@Url.Action("Index", "Category")">Cancel</a>
-</form>

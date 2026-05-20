@@ -1,98 +1,80 @@
-﻿@model RegvedInventoryDB.Models.CategoryProductViewModel
+@model RegvedInventoryDB.Models.CategoryProductViewModel
 @{
-    ViewBag.Title = "Create Product";
+    ViewBag.Title = "Add Product";
+    ViewBag.BreadcrumbParent = "Products";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create Product</h2>
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="form-card">
+            <h5 class="fw-bold mb-1">Add Product</h5>
+            <p class="text-muted small mb-4">Fill in the details to add a new product to inventory.</p>
 
-@if (TempData["Debug"] != null)
-{
-    <div class="alert alert-info">
-        Debug Info: @TempData["Debug"]
-    </div>
-}
+            @if (!Model.HasCategories)
+            {
+                <div class="alert alert-warning d-flex align-items-center gap-2">
+                    <i class="bi bi-exclamation-triangle-fill"></i>
+                    <span>No categories found. <a asp-controller="Category" asp-action="Create">Create a category first.</a></span>
+                </div>
+            }
 
-@if (ViewData["Debug"] != null)
-{
-    <div class="alert alert-info">
-        Validation Info: @ViewData["Debug"]
+            <form asp-action="Create" method="post">
+                @Html.AntiForgeryToken()
+                <div class="row g-3">
+                    <div class="col-md-12">
+                        <label asp-for="ProductModelSingle.ProductName" class="form-label fw-medium"></label>
+                        <input asp-for="ProductModelSingle.ProductName" class="form-control" placeholder="Product name" autofocus />
+                        <span asp-validation-for="ProductModelSingle.ProductName" class="text-danger small"></span>
+                    </div>
+                    <div class="col-md-12">
+                        <label asp-for="ProductModelSingle.Description" class="form-label fw-medium"></label>
+                        <textarea asp-for="ProductModelSingle.Description" class="form-control" rows="2"
+                                  placeholder="Optional description"></textarea>
+                        <span asp-validation-for="ProductModelSingle.Description" class="text-danger small"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="CategoryID" class="form-label fw-medium">Category</label>
+                        <select asp-for="CategoryID" class="form-select"
+                                asp-items="@(new SelectList(Model.CategoryModel, "CategoryID", "CategoryName"))">
+                            <option value="">-- Select Category --</option>
+                        </select>
+                        <span asp-validation-for="CategoryID" class="text-danger small"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="ProductModelSingle.ManufactureDate" class="form-label fw-medium"></label>
+                        <input asp-for="ProductModelSingle.ManufactureDate" class="form-control" type="date"
+                               max="@DateTime.Today.ToString("yyyy-MM-dd")" />
+                        <span asp-validation-for="ProductModelSingle.ManufactureDate" class="text-danger small"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="ProductModelSingle.Price" class="form-label fw-medium"></label>
+                        <div class="input-group">
+                            <span class="input-group-text">₹</span>
+                            <input asp-for="ProductModelSingle.Price" class="form-control" type="number"
+                                   step="0.01" min="0.01" placeholder="0.00" />
+                        </div>
+                        <span asp-validation-for="ProductModelSingle.Price" class="text-danger small"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="ProductModelSingle.Stock" class="form-label fw-medium"></label>
+                        <input asp-for="ProductModelSingle.Stock" class="form-control" type="number"
+                               min="0" placeholder="0" />
+                        <span asp-validation-for="ProductModelSingle.Stock" class="text-danger small"></span>
+                    </div>
+                </div>
+                <hr class="my-4" />
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-check-lg me-1"></i> Save Product
+                    </button>
+                    <a asp-action="Index" class="btn btn-outline-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
     </div>
-}
-
-@if (!Model.HasCategories)
-{
-    <div class="alert alert-warning">
-        No categories available. Please create a category first.
-    </div>
-}
-
-@if (TempData["Error"] != null)
-{
-    <div class="alert alert-danger">
-        @TempData["Error"]
-    </div>
-}
-
-<form asp-action="Create" method="post">
-    @Html.AntiForgeryToken()
-    <div class="form-group">
-        <label asp-for="ProductModelSingle.ProductName" class="control-label"></label>
-        <input asp-for="ProductModelSingle.ProductName" class="form-control" />
-        <span asp-validation-for="ProductModelSingle.ProductName" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="ProductModelSingle.Description" class="control-label"></label>
-        <textarea asp-for="ProductModelSingle.Description" class="form-control"></textarea>
-        <span asp-validation-for="ProductModelSingle.Description" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="CategoryID" class="control-label">Category</label>
-        <select asp-for="CategoryID" class="form-control"
-                asp-items="@(new SelectList(Model.CategoryModel, "CategoryID", "CategoryName"))">
-            <option value="">-- Select Category --</option>
-        </select>
-        <span asp-validation-for="CategoryID" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="ProductModelSingle.Price" class="control-label"></label>
-        <input asp-for="ProductModelSingle.Price" class="form-control" type="number" step="0.01" min="0" />
-        <span asp-validation-for="ProductModelSingle.Price" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="ProductModelSingle.Stock" class="control-label"></label>
-        <input asp-for="ProductModelSingle.Stock" class="form-control" type="number" min="0" />
-        <span asp-validation-for="ProductModelSingle.Stock" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="ProductModelSingle.ManufactureDate" class="control-label"></label>
-        <input asp-for="ProductModelSingle.ManufactureDate" class="form-control" type="date" />
-        <span asp-validation-for="ProductModelSingle.ManufactureDate" class="text-danger"></span>
-    </div>
-    <button type="submit" class="btn btn-primary">Create</button>
-    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
-</form>
+</div>
 
 @section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-    <script>
-        $(document).ready(function () {
-            // Log the initial state
-            console.log("Form loaded. CategoryID value:", $("#CategoryID").val());
-            console.log("Available categories:", @Html.Raw(Json.Serialize(Model.CategoryModel)));
-
-            // Monitor category changes
-            $("#CategoryID").change(function() {
-                console.log("Category changed to:", $(this).val());
-            });
-
-            // Log form submission
-            $("form").submit(function(e) {
-                console.log("Form submitting with CategoryID:", $("#CategoryID").val());
-            });
-        });
-    </script>
+    <partial name="_ValidationScriptsPartial" />
 }

@@ -1,12 +1,27 @@
-﻿@model RegvedInventoryDB.Models.ErrorViewModel
+@model RegvedInventoryDB.Models.ErrorViewModel
 @{
     ViewBag.Title = "Error";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>An error occurred.</h2>
-<p>Sorry, an unexpected error has occurred. Please try again later.</p>
-@if (!string.IsNullOrEmpty(Model?.RequestId))
-{
-    <p><strong>Request ID:</strong> @Model.RequestId</p>
-}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6 text-center">
+        <div class="stat-icon bg-danger-subtle text-danger mx-auto mb-4" style="width:80px;height:80px;border-radius:50%;">
+            <i class="bi bi-bug-fill fs-2"></i>
+        </div>
+        <h3 class="fw-bold">Something went wrong</h3>
+        <p class="text-muted mb-4">
+            An unexpected error occurred. Our team has been notified.<br/>
+            Please try again or contact support if the problem persists.
+        </p>
+        @if (Model?.ShowRequestId == true)
+        {
+            <div class="alert alert-light border small text-muted">
+                <strong>Request ID:</strong> @Model.RequestId
+            </div>
+        }
+        <a href="@Url.Action("Index","Home")" class="btn btn-primary">
+            <i class="bi bi-house me-1"></i> Return Home
+        </a>
+    </div>
+</div>

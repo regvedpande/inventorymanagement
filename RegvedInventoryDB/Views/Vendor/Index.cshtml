@@ -1,68 +1,90 @@
-﻿@model IEnumerable<RegvedInventoryDB.Models.Vendor>
+@model IEnumerable<RegvedInventoryDB.Models.Vendor>
 @{
-    ViewBag.Title = "Vendor List";
+    ViewBag.Title = "Vendors";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Vendor List</h2>
+<div class="d-flex align-items-center justify-content-between mb-4">
+    <div>
+        <h4 class="mb-0 fw-bold">Vendors</h4>
+        <small class="text-muted">Manage your supplier network</small>
+    </div>
+    <a asp-action="Create" class="btn btn-primary">
+        <i class="bi bi-plus-lg me-1"></i> Add Vendor
+    </a>
+</div>
 
-@if (TempData["Success"] != null)
-{
-    <div class="alert alert-success">@TempData["Success"]</div>
-}
-
-@if (TempData["Error"] != null)
-{
-    <div class="alert alert-danger">@TempData["Error"]</div>
-}
-
-<p>
-    <a asp-action="Create" class="btn btn-primary">Add New Vendor</a>
-</p>
-
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>Vendor ID</th>
-            <th>Vendor Name</th>
-            <th>Description</th>
-            <th>Email</th>
-            <th>Address</th>
-            <th>Phone Number</th>
-            <th>Quantity</th>
-            <th>Price Per Unit</th>
-            <th>Amount</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @if (!Model.Any())
-        {
-            <tr>
-                <td colspan="10" class="text-center">No vendors found.</td>
-            </tr>
-        }
-        else
-        {
-            @foreach (var vendor in Model)
-            {
+<div class="card table-card">
+    <div class="card-body p-0">
+        <table id="vendorsTable" class="table table-hover mb-0">
+            <thead>
                 <tr>
-                    <td>@vendor.VendorID</td>
-                    <td>@vendor.VendorName</td>
-                    <td>@vendor.Description</td>
-                    <td>@vendor.VendorEmail</td>
-                    <td>@vendor.Address</td>
-                    <td>@vendor.PhoneNumber</td>
-                    <td>@vendor.Quantity</td>
-                    <td>@vendor.PricePerUnit.ToString("C")</td>
-                    <td>@vendor.Amount.ToString("C")</td>
-                    <td>
-                        <a asp-controller="Vendor" asp-action="Details" asp-route-id="@vendor.VendorID" class="btn btn-info btn-sm">Details</a>
-                        <a asp-controller="Vendor" asp-action="Edit" asp-route-id="@vendor.VendorID" class="btn btn-warning btn-sm">Edit</a>
-                        <a asp-controller="Vendor" asp-action="Delete" asp-route-id="@vendor.VendorID" class="btn btn-danger btn-sm">Delete</a>
-                    </td>
+                    <th>Vendor</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Product</th>
+                    <th>Qty</th>
+                    <th>Price/Unit</th>
+                    <th>Amount</th>
+                    <th class="text-end">Actions</th>
                 </tr>
-            }
-        }
-    </tbody>
-</table>
+            </thead>
+            <tbody>
+                @foreach (var v in Model)
+                {
+                    <tr>
+                        <td>
+                            <span class="fw-medium">@v.VendorName</span>
+                            @if (!string.IsNullOrWhiteSpace(v.Address))
+                            {
+                                <br /><small class="text-muted"><i class="bi bi-geo-alt"></i> @v.Address</small>
+                            }
+                        </td>
+                        <td><a href="mailto:@v.VendorEmail" class="text-decoration-none">@v.VendorEmail</a></td>
+                        <td>@v.PhoneNumber</td>
+                        <td>
+                            <span class="badge bg-light text-dark border">@(v.ProductName ?? v.ProductID.ToString())</span>
+                        </td>
+                        <td class="fw-semibold">@v.Quantity</td>
+                        <td>@v.PricePerUnit.ToString("C")</td>
+                        <td class="fw-bold text-success">@v.Amount.ToString("C")</td>
+                        <td class="text-end">
+                            <a asp-controller="Vendor" asp-action="Details" asp-route-id="@v.VendorID"
+                               class="btn btn-sm btn-outline-info me-1" title="Details">
+                                <i class="bi bi-eye"></i>
+                            </a>
+                            <a asp-controller="Vendor" asp-action="Edit" asp-route-id="@v.VendorID"
+                               class="btn btn-sm btn-outline-warning me-1" title="Edit">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+                            <a asp-controller="Vendor" asp-action="Delete" asp-route-id="@v.VendorID"
+                               class="btn btn-sm btn-outline-danger" title="Delete">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@if (!Model.Any())
+{
+    <div class="text-center py-5 text-muted">
+        <i class="bi bi-truck fs-1 d-block mb-2 opacity-25"></i>
+        <p>No vendors found. <a asp-action="Create">Add your first vendor.</a></p>
+    </div>
+}
+
+@section Scripts {
+<script>
+    $(document).ready(function () {
+        $('#vendorsTable').DataTable({
+            pageLength: 15,
+            order: [[0, 'asc']],
+            columnDefs: [{ orderable: false, targets: 7 }]
+        });
+    });
+</script>
+}

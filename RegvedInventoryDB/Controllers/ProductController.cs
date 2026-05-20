@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using RegvedInventoryDB.Filters;
 using RegvedInventoryDB.Models;
 using RegvedInventoryDB.Services;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace RegvedInventoryDB.Controllers
@@ -17,11 +18,14 @@ namespace RegvedInventoryDB.Controllers
         private readonly ICategoryService _categoryService;
         private readonly ILogger<ProductController> _logger;
 
-        public ProductController(IProductService productService, ICategoryService categoryService, ILogger<ProductController> logger)
+        public ProductController(
+            IProductService productService,
+            ICategoryService categoryService,
+            ILogger<ProductController> logger)
         {
-            _productService = productService ?? throw new ArgumentNullException(nameof(productService));
+            _productService  = productService  ?? throw new ArgumentNullException(nameof(productService));
             _categoryService = categoryService ?? throw new ArgumentNullException(nameof(categoryService));
-            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _logger          = logger          ?? throw new ArgumentNullException(nameof(logger));
         }
 
         [HttpGet("Index")]
@@ -34,36 +38,23 @@ namespace RegvedInventoryDB.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error retrieving products for Index");
+                _logger.LogError(ex, "Error retrieving products list");
                 TempData["Error"] = "An error occurred while loading products.";
                 return View(new List<Product>());
             }
         }
 
         [HttpGet("Create")]
-        public async Task<IActionResult> Create(int? id)
+        public async Task<IActionResult> Create()
         {
             try
             {
                 var categories = await _categoryService.GetCategoriesAsync();
-
-                // Add debug logging
-                _logger.LogInformation("Categories loaded: {Count}", categories?.Count() ?? 0);
-                foreach (var category in categories ?? Enumerable.Empty<Category>())
+                var viewModel  = new CategoryProductViewModel
                 {
-                    _logger.LogInformation("Category: ID={ID}, Name={Name}", category.CategoryID, category.CategoryName);
-                }
-
-                var viewModel = new CategoryProductViewModel
-                {
-                    CategoryModel = categories ?? new List<Category>(),
-                    ProductModelSingle = new Product { ManufactureDate = DateTime.Today },
-                    CategoryID = id ?? 0
+                    CategoryModel      = categories ?? new List<Category>(),
+                    ProductModelSingle = new Product { ManufactureDate = DateTime.Today }
                 };
-
-                // Add debug information to TempData
-                TempData["Debug"] = $"Categories loaded: {viewModel.CategoryModel.Count()}";
-
                 return View(viewModel);
             }
             catch (Exception ex)
@@ -78,42 +69,22 @@ namespace RegvedInventoryDB.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(CategoryProductViewModel model)
         {
-            // Add debug logging
-            _logger.LogInformation("Create POST called with CategoryID: {CategoryID}", model.CategoryID);
-
             try
             {
-                // Load categories
-                var categories = await _categoryService.GetCategoriesAsync();
-                model.CategoryModel = categories;
+                model.CategoryModel = await _categoryService.GetCategoriesAsync();
 
-                // Log ModelState errors
                 if (!ModelState.IsValid)
-                {
-                    foreach (var modelStateEntry in ModelState.Values)
-                    {
-                        foreach (var error in modelStateEntry.Errors)
-                        {
-                            _logger.LogWarning("Validation error: {Error}", error.ErrorMessage);
-                        }
-                    }
-
-                    // Add debug information to ViewData
-                    ViewData["Debug"] = $"ModelState errors: {string.Join(", ", ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage))}";
                     return View(model);
-                }
 
                 var product = new Product
                 {
-                    ProductName = model.ProductModelSingle.ProductName,
-                    Description = model.ProductModelSingle.Description,
-                    Price = model.ProductModelSingle.Price,
-                    Stock = model.ProductModelSingle.Stock,
+                    ProductName     = model.ProductModelSingle.ProductName,
+                    Description     = model.ProductModelSingle.Description,
+                    Price           = model.ProductModelSingle.Price,
+                    Stock           = model.ProductModelSingle.Stock,
                     ManufactureDate = model.ProductModelSingle.ManufactureDate,
-                    CategoryID = model.CategoryID
+                    CategoryID      = model.CategoryID
                 };
-
-                _logger.LogInformation("Attempting to create product with CategoryID: {CategoryID}", product.CategoryID);
 
                 var success = await _productService.CreateProductAsync(product, product.CategoryID);
                 if (success)
@@ -129,6 +100,7 @@ namespace RegvedInventoryDB.Controllers
             {
                 _logger.LogError(ex, "Error creating product");
                 TempData["Error"] = "An error occurred while creating the product.";
+                model.CategoryModel = await _categoryService.GetCategoriesAsync();
                 return View(model);
             }
         }
@@ -141,22 +113,21 @@ namespace RegvedInventoryDB.Controllers
                 var product = await _productService.GetProductByIdAsync(id);
                 if (product == null)
                 {
-                    _logger.LogWarning("Product not found for edit with ID: {Id}", id);
+                    _logger.LogWarning("Product not found for edit. ID: {Id}", id);
                     return NotFound();
                 }
-                var categories = await _categoryService.GetCategoriesAsync();
+
                 var viewModel = new CategoryProductViewModel
                 {
                     ProductModelSingle = product,
-                    CategoryModel = categories,
-                    CategoryID = product.CategoryID
+                    CategoryModel      = await _categoryService.GetCategoriesAsync(),
+                    CategoryID         = product.CategoryID
                 };
-                _logger.LogInformation("Edit GET: Loaded product with CategoryID = {CategoryID}", viewModel.CategoryID);
                 return View(viewModel);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error loading edit form for product ID: {Id}", id);
+                _logger.LogError(ex, "Error loading edit form for product ID {Id}", id);
                 TempData["Error"] = "An error occurred while loading the edit form.";
                 return RedirectToAction(nameof(Index));
             }
@@ -168,24 +139,18 @@ namespace RegvedInventoryDB.Controllers
         {
             if (id != model.ProductModelSingle.ProductID)
             {
-                _logger.LogWarning("Product ID mismatch: Route ID {RouteId} vs Model ID {ModelId}", id, model.ProductModelSingle.ProductID);
+                _logger.LogWarning("Product ID mismatch: route={RouteId}, model={ModelId}", id, model.ProductModelSingle.ProductID);
                 return BadRequest("Product ID mismatch.");
             }
-
-            _logger.LogInformation("Product Edit POST action called with CategoryID: {CategoryID}", model.CategoryID);
 
             try
             {
                 model.CategoryModel = await _categoryService.GetCategoriesAsync();
 
                 if (!ModelState.IsValid)
-                {
-                    var errors = ModelState.SelectMany(x => x.Value.Errors).Select(x => x.ErrorMessage);
-                    _logger.LogWarning("Validation failed for product edit: {Errors}", string.Join(", ", errors));
                     return View(model);
-                }
 
-                var product = model.ProductModelSingle;
+                var product      = model.ProductModelSingle;
                 product.CategoryID = model.CategoryID;
 
                 var success = await _productService.UpdateProductAsync(product, product.CategoryID);
@@ -200,8 +165,9 @@ namespace RegvedInventoryDB.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error updating product ID: {Id}", id);
+                _logger.LogError(ex, "Error updating product ID {Id}", id);
                 TempData["Error"] = "An error occurred while updating the product.";
+                model.CategoryModel = await _categoryService.GetCategoriesAsync();
                 return View(model);
             }
         }
@@ -214,20 +180,18 @@ namespace RegvedInventoryDB.Controllers
                 var product = await _productService.GetProductByIdAsync(id);
                 if (product == null)
                 {
-                    _logger.LogWarning("Product not found with ID: {Id}", id);
+                    _logger.LogWarning("Product not found. ID: {Id}", id);
                     return NotFound();
                 }
                 return View(product);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error retrieving product details for ID: {Id}", id);
+                _logger.LogError(ex, "Error retrieving product details for ID {Id}", id);
                 TempData["Error"] = "An error occurred while loading product details.";
                 return RedirectToAction(nameof(Index));
             }
         }
-
-        
 
         [HttpGet("Delete/{id}")]
         public async Task<IActionResult> Delete(int id)
@@ -237,14 +201,14 @@ namespace RegvedInventoryDB.Controllers
                 var product = await _productService.GetProductByIdAsync(id);
                 if (product == null)
                 {
-                    _logger.LogWarning("Product not found for delete with ID: {Id}", id);
+                    _logger.LogWarning("Product not found for delete. ID: {Id}", id);
                     return NotFound();
                 }
                 return View(product);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error loading delete page for product ID: {Id}", id);
+                _logger.LogError(ex, "Error loading delete page for product ID {Id}", id);
                 TempData["Error"] = "An error occurred while loading the delete page.";
                 return RedirectToAction(nameof(Index));
             }
@@ -257,19 +221,14 @@ namespace RegvedInventoryDB.Controllers
             try
             {
                 var success = await _productService.DeleteProductAsync(id, permanent);
-                if (success)
-                {
-                    TempData["Success"] = permanent ? "Product permanently deleted." : "Product moved to recycle bin.";
-                }
-                else
-                {
-                    TempData["Error"] = "Failed to delete product.";
-                }
+                TempData[success ? "Success" : "Error"] = success
+                    ? (permanent ? "Product permanently deleted." : "Product moved to recycle bin.")
+                    : "Failed to delete product.";
                 return RedirectToAction(nameof(Index));
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error deleting product ID: {Id}", id);
+                _logger.LogError(ex, "Error deleting product ID {Id}", id);
                 TempData["Error"] = "An error occurred while deleting the product.";
                 return RedirectToAction(nameof(Index));
             }

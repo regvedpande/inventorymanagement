@@ -4,6 +4,7 @@ using System.Data;
 using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using RegvedInventoryDB.Models;
 
 namespace RegvedInventoryDB.DAL
@@ -11,11 +12,13 @@ namespace RegvedInventoryDB.DAL
     public class InventoryRepository
     {
         private readonly string _connectionString;
+        private readonly ILogger<InventoryRepository> _logger;
 
-        public InventoryRepository(IConfiguration configuration)
+        public InventoryRepository(IConfiguration configuration, ILogger<InventoryRepository> logger)
         {
             _connectionString = configuration.GetConnectionString("RegvedInventoryDB")
                 ?? throw new ArgumentNullException(nameof(configuration), "Connection string 'RegvedInventoryDB' not found.");
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         #region Category Methods
@@ -459,7 +462,7 @@ namespace RegvedInventoryDB.DAL
                         if (result != null && result != DBNull.Value)
                         {
                             res.Status = true;
-                            res.Data = Convert.ToInt32(Convert.ToDecimal(result));
+                            res.Data = Convert.ToInt32(result);
                             res.Message = "Product inserted successfully.";
                         }
                         else
@@ -739,18 +742,20 @@ namespace RegvedInventoryDB.DAL
                             {
                                 vendorList.Add(new Vendor
                                 {
-                                    VendorID = Convert.ToInt32(reader["VendorID"]),
-                                    VendorName = reader["VendorName"].ToString(),
-                                    Description = reader["Description"]?.ToString(),
-                                    VendorEmail = reader["VendorEmail"].ToString(),
-                                    Address = reader["Address"].ToString(),
-                                    PhoneNumber = reader["PhoneNumber"].ToString(),
-                                    CategoryID = Convert.ToInt32(reader["CategoryID"]),
-                                    ProductID = Convert.ToInt32(reader["ProductID"]),
-                                    Quantity = Convert.ToInt32(reader["Quantity"]),
+                                    VendorID     = Convert.ToInt32(reader["VendorID"]),
+                                    VendorName   = reader["VendorName"].ToString()!,
+                                    Description  = reader["Description"]?.ToString(),
+                                    VendorEmail  = reader["VendorEmail"].ToString()!,
+                                    Address      = reader["Address"].ToString()!,
+                                    PhoneNumber  = reader["PhoneNumber"].ToString()!,
+                                    CategoryID   = Convert.ToInt32(reader["CategoryID"]),
+                                    ProductID    = Convert.ToInt32(reader["ProductID"]),
+                                    Quantity     = Convert.ToInt32(reader["Quantity"]),
                                     PricePerUnit = Convert.ToDecimal(reader["PricePerUnit"]),
-                                    Amount = Convert.ToDecimal(reader["Amount"]),
-                                    IsDeleted = Convert.ToBoolean(reader["IsDeleted"])
+                                    Amount       = Convert.ToDecimal(reader["Amount"]),
+                                    IsDeleted    = Convert.ToBoolean(reader["IsDeleted"]),
+                                    CategoryName = reader["CategoryName"]?.ToString(),
+                                    ProductName  = reader["ProductName"]?.ToString()
                                 });
                             }
                         }
@@ -794,18 +799,20 @@ namespace RegvedInventoryDB.DAL
                             {
                                 vendor = new Vendor
                                 {
-                                    VendorID = Convert.ToInt32(reader["VendorID"]),
-                                    VendorName = reader["VendorName"].ToString(),
-                                    Description = reader["Description"]?.ToString(),
-                                    VendorEmail = reader["VendorEmail"].ToString(),
-                                    Address = reader["Address"].ToString(),
-                                    PhoneNumber = reader["PhoneNumber"].ToString(),
-                                    CategoryID = Convert.ToInt32(reader["CategoryID"]),
-                                    ProductID = Convert.ToInt32(reader["ProductID"]),
-                                    Quantity = Convert.ToInt32(reader["Quantity"]),
+                                    VendorID     = Convert.ToInt32(reader["VendorID"]),
+                                    VendorName   = reader["VendorName"].ToString()!,
+                                    Description  = reader["Description"]?.ToString(),
+                                    VendorEmail  = reader["VendorEmail"].ToString()!,
+                                    Address      = reader["Address"].ToString()!,
+                                    PhoneNumber  = reader["PhoneNumber"].ToString()!,
+                                    CategoryID   = Convert.ToInt32(reader["CategoryID"]),
+                                    ProductID    = Convert.ToInt32(reader["ProductID"]),
+                                    Quantity     = Convert.ToInt32(reader["Quantity"]),
                                     PricePerUnit = Convert.ToDecimal(reader["PricePerUnit"]),
-                                    Amount = Convert.ToDecimal(reader["Amount"]),
-                                    IsDeleted = Convert.ToBoolean(reader["IsDeleted"])
+                                    Amount       = Convert.ToDecimal(reader["Amount"]),
+                                    IsDeleted    = Convert.ToBoolean(reader["IsDeleted"]),
+                                    CategoryName = reader["CategoryName"]?.ToString(),
+                                    ProductName  = reader["ProductName"]?.ToString()
                                 };
                             }
                         }
@@ -1008,18 +1015,20 @@ namespace RegvedInventoryDB.DAL
                             {
                                 vendorList.Add(new Vendor
                                 {
-                                    VendorID = Convert.ToInt32(reader["VendorID"]),
-                                    VendorName = reader["VendorName"].ToString(),
-                                    Description = reader["Description"]?.ToString(),
-                                    VendorEmail = reader["VendorEmail"].ToString(),
-                                    Address = reader["Address"].ToString(),
-                                    PhoneNumber = reader["PhoneNumber"].ToString(),
-                                    CategoryID = Convert.ToInt32(reader["CategoryID"]),
-                                    ProductID = Convert.ToInt32(reader["ProductID"]),
-                                    Quantity = Convert.ToInt32(reader["Quantity"]),
+                                    VendorID     = Convert.ToInt32(reader["VendorID"]),
+                                    VendorName   = reader["VendorName"].ToString()!,
+                                    Description  = reader["Description"]?.ToString(),
+                                    VendorEmail  = reader["VendorEmail"].ToString()!,
+                                    Address      = reader["Address"].ToString()!,
+                                    PhoneNumber  = reader["PhoneNumber"].ToString()!,
+                                    CategoryID   = Convert.ToInt32(reader["CategoryID"]),
+                                    ProductID    = Convert.ToInt32(reader["ProductID"]),
+                                    Quantity     = Convert.ToInt32(reader["Quantity"]),
                                     PricePerUnit = Convert.ToDecimal(reader["PricePerUnit"]),
-                                    Amount = Convert.ToDecimal(reader["Amount"]),
-                                    IsDeleted = Convert.ToBoolean(reader["IsDeleted"])
+                                    Amount       = Convert.ToDecimal(reader["Amount"]),
+                                    IsDeleted    = Convert.ToBoolean(reader["IsDeleted"]),
+                                    CategoryName = reader["CategoryName"]?.ToString(),
+                                    ProductName  = reader["ProductName"]?.ToString()
                                 });
                             }
                         }
@@ -1074,6 +1083,92 @@ namespace RegvedInventoryDB.DAL
             }
 
             return res;
+        }
+
+        #endregion
+
+        #region Dashboard Methods
+
+        public async Task<DashboardViewModel> GetDashboardStatsAsync(int lowStockThreshold = 10)
+        {
+            var model = new DashboardViewModel();
+            var lowStockProducts = new List<Product>();
+            var recentProducts = new List<Product>();
+
+            try
+            {
+                using var con = new SqlConnection(_connectionString);
+                using var cmd = new SqlCommand("sp_GetDashboardStats", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@LowStockThreshold", lowStockThreshold);
+                await con.OpenAsync();
+
+                using var reader = await cmd.ExecuteReaderAsync();
+
+                // First result set: summary stats
+                if (await reader.ReadAsync())
+                {
+                    model.TotalProducts       = Convert.ToInt32(reader["TotalProducts"]);
+                    model.TotalCategories     = Convert.ToInt32(reader["TotalCategories"]);
+                    model.TotalVendors        = Convert.ToInt32(reader["TotalVendors"]);
+                    model.LowStockCount       = Convert.ToInt32(reader["LowStockCount"]);
+                    model.TotalInventoryValue = Convert.ToDecimal(reader["TotalInventoryValue"]);
+                    model.RecycleBinCount     = Convert.ToInt32(reader["DeletedProductsCount"])
+                                              + Convert.ToInt32(reader["DeletedCategoriesCount"])
+                                              + Convert.ToInt32(reader["DeletedVendorsCount"]);
+                }
+
+                // Second result set: low stock products
+                if (await reader.NextResultAsync())
+                {
+                    while (await reader.ReadAsync())
+                    {
+                        lowStockProducts.Add(new Product
+                        {
+                            ProductID       = Convert.ToInt32(reader["ProductID"]),
+                            ProductName     = reader["ProductName"].ToString()!,
+                            Description     = reader["Description"]?.ToString(),
+                            Price           = Convert.ToDecimal(reader["Price"]),
+                            Stock           = Convert.ToInt32(reader["Stock"]),
+                            ManufactureDate = Convert.ToDateTime(reader["ManufactureDate"]),
+                            CategoryID      = Convert.ToInt32(reader["CategoryID"]),
+                            CategoryName    = reader["CategoryName"].ToString()!
+                        });
+                    }
+                }
+
+                // Third result set: recent products
+                if (await reader.NextResultAsync())
+                {
+                    while (await reader.ReadAsync())
+                    {
+                        recentProducts.Add(new Product
+                        {
+                            ProductID       = Convert.ToInt32(reader["ProductID"]),
+                            ProductName     = reader["ProductName"].ToString()!,
+                            Description     = reader["Description"]?.ToString(),
+                            Price           = Convert.ToDecimal(reader["Price"]),
+                            Stock           = Convert.ToInt32(reader["Stock"]),
+                            ManufactureDate = Convert.ToDateTime(reader["ManufactureDate"]),
+                            CategoryID      = Convert.ToInt32(reader["CategoryID"]),
+                            CategoryName    = reader["CategoryName"].ToString()!
+                        });
+                    }
+                }
+
+                model.LowStockProducts = lowStockProducts;
+                model.RecentProducts   = recentProducts;
+            }
+            catch (SqlException ex)
+            {
+                _logger.LogError(ex, "Database error loading dashboard stats (SQL {Number})", ex.Number);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Unexpected error loading dashboard stats");
+            }
+
+            return model;
         }
 
         #endregion

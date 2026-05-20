@@ -1,244 +1,239 @@
-﻿@model RegvedInventoryDB.Models.RecycleBinViewModel
+@model RegvedInventoryDB.Models.RecycleBinViewModel
 @{
     ViewBag.Title = "Recycle Bin";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    int totalItems = Model.SoftDeletedProducts.Count()
+                   + Model.SoftDeletedCategories.Count()
+                   + Model.SoftDeletedVendors.Count();
 }
 @Html.AntiForgeryToken()
-<h2>Recycle Bin</h2>
-<div id="message"></div>
 
-<h3>Soft‑Deleted Products</h3>
-@if (!Model.SoftDeletedProducts.Any())
-{
-    <p>No soft‑deleted products found.</p>
-}
-else
-{
-    <table class="table table-bordered" id="productsTable">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Stock</th>
-                <th>Manufacture Date</th>
-                <th>Category</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var product in Model.SoftDeletedProducts)
-            {
-                <tr data-id="@product.ProductID">
-                    <td>@product.ProductID</td>
-                    <td>@product.ProductName</td>
-                    <td>@product.Description</td>
-                    <td>@product.Price.ToString("C")</td>
-                    <td>@product.Stock</td>
-                    <td>@product.ManufactureDate.ToShortDateString()</td>
-                    <td>@product.CategoryName</td>
-                    <td>
-                        <button class="btn btn-success btn-sm restoreProduct" data-id="@product.ProductID">Restore</button>
-                        <button class="btn btn-danger btn-sm permanentDeleteProduct" data-id="@product.ProductID">Permanent Delete</button>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
+<div class="d-flex align-items-center justify-content-between mb-4">
+    <div>
+        <h4 class="mb-0 fw-bold">Recycle Bin</h4>
+        <small class="text-muted">@totalItems item(s) pending recovery or permanent deletion</small>
+    </div>
+    @if (totalItems == 0)
+    {
+        <span class="badge bg-success-subtle text-success border border-success-subtle px-3 py-2">Empty</span>
+    }
+</div>
 
-<h3>Soft‑Deleted Categories</h3>
-@if (!Model.SoftDeletedCategories.Any())
-{
-    <p>No soft‑deleted categories found.</p>
-}
-else
-{
-    <table class="table table-bordered" id="categoriesTable">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Category Name</th>
-                <th>Description</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var category in Model.SoftDeletedCategories)
-            {
-                <tr data-id="@category.CategoryID">
-                    <td>@category.CategoryID</td>
-                    <td>@category.CategoryName</td>
-                    <td>@category.Description</td>
-                    <td>
-                        <button class="btn btn-success btn-sm restoreCategory" data-id="@category.CategoryID">Restore</button>
-                        <button class="btn btn-danger btn-sm permanentDeleteCategory" data-id="@category.CategoryID">Permanent Delete</button>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
+<div id="rb-message"></div>
 
-<h3>Soft‑Deleted Vendors</h3>
-@if (!Model.SoftDeletedVendors.Any())
-{
-    <p>No soft‑deleted vendors found.</p>
-}
-else
-{
-    <table class="table table-bordered" id="vendorsTable">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Vendor Name</th>
-                <th>Description</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var vendor in Model.SoftDeletedVendors)
-            {
-                <tr data-id="@vendor.VendorID">
-                    <td>@vendor.VendorID</td>
-                    <td>@vendor.VendorName</td>
-                    <td>@vendor.Description</td>
-                    <td>
-                        <button class="btn btn-success btn-sm restoreVendor" data-id="@vendor.VendorID">Restore</button>
-                        <button class="btn btn-danger btn-sm permanentDeleteVendor" data-id="@vendor.VendorID">Permanent Delete</button>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
+<!-- Nav tabs -->
+<ul class="nav nav-tabs mb-4" id="rbTabs" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="products-tab" data-bs-toggle="tab" data-bs-target="#products"
+                type="button" role="tab">
+            <i class="bi bi-box-seam me-1"></i>Products
+            <span class="badge bg-secondary ms-1">@Model.SoftDeletedProducts.Count()</span>
+        </button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="categories-tab" data-bs-toggle="tab" data-bs-target="#categories"
+                type="button" role="tab">
+            <i class="bi bi-tags me-1"></i>Categories
+            <span class="badge bg-secondary ms-1">@Model.SoftDeletedCategories.Count()</span>
+        </button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="vendors-tab" data-bs-toggle="tab" data-bs-target="#vendors"
+                type="button" role="tab">
+            <i class="bi bi-truck me-1"></i>Vendors
+            <span class="badge bg-secondary ms-1">@Model.SoftDeletedVendors.Count()</span>
+        </button>
+    </li>
+</ul>
+
+<div class="tab-content">
+
+    <!-- Products tab -->
+    <div class="tab-pane fade show active" id="products" role="tabpanel">
+        <div class="card table-card">
+            <div class="card-body p-0">
+                @if (!Model.SoftDeletedProducts.Any())
+                {
+                    <div class="text-center py-5 text-muted">
+                        <i class="bi bi-box-seam fs-1 d-block mb-2 opacity-25"></i>
+                        No deleted products
+                    </div>
+                }
+                else
+                {
+                    <table class="table table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Category</th>
+                                <th>Price</th>
+                                <th>Stock</th>
+                                <th class="text-end">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var p in Model.SoftDeletedProducts)
+                            {
+                                <tr data-entity="product" data-id="@p.ProductID">
+                                    <td class="fw-medium">@p.ProductName</td>
+                                    <td>@p.CategoryName</td>
+                                    <td>@p.Price.ToString("C")</td>
+                                    <td>@p.Stock</td>
+                                    <td class="text-end">
+                                        <button class="btn btn-sm btn-success me-1 rb-restore"
+                                                data-entity="product" data-id="@p.ProductID" title="Restore">
+                                            <i class="bi bi-arrow-counterclockwise"></i> Restore
+                                        </button>
+                                        <button class="btn btn-sm btn-danger rb-delete"
+                                                data-entity="product" data-id="@p.ProductID" title="Permanently Delete">
+                                            <i class="bi bi-trash-fill"></i> Delete
+                                        </button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+            </div>
+        </div>
+    </div>
+
+    <!-- Categories tab -->
+    <div class="tab-pane fade" id="categories" role="tabpanel">
+        <div class="card table-card">
+            <div class="card-body p-0">
+                @if (!Model.SoftDeletedCategories.Any())
+                {
+                    <div class="text-center py-5 text-muted">
+                        <i class="bi bi-tags fs-1 d-block mb-2 opacity-25"></i>
+                        No deleted categories
+                    </div>
+                }
+                else
+                {
+                    <table class="table table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th class="text-end">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var c in Model.SoftDeletedCategories)
+                            {
+                                <tr data-entity="category" data-id="@c.CategoryID">
+                                    <td class="fw-medium">@c.CategoryName</td>
+                                    <td class="text-muted">@(string.IsNullOrWhiteSpace(c.Description) ? "—" : c.Description)</td>
+                                    <td class="text-end">
+                                        <button class="btn btn-sm btn-success me-1 rb-restore"
+                                                data-entity="category" data-id="@c.CategoryID">
+                                            <i class="bi bi-arrow-counterclockwise"></i> Restore
+                                        </button>
+                                        <button class="btn btn-sm btn-danger rb-delete"
+                                                data-entity="category" data-id="@c.CategoryID">
+                                            <i class="bi bi-trash-fill"></i> Delete
+                                        </button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+            </div>
+        </div>
+    </div>
+
+    <!-- Vendors tab -->
+    <div class="tab-pane fade" id="vendors" role="tabpanel">
+        <div class="card table-card">
+            <div class="card-body p-0">
+                @if (!Model.SoftDeletedVendors.Any())
+                {
+                    <div class="text-center py-5 text-muted">
+                        <i class="bi bi-truck fs-1 d-block mb-2 opacity-25"></i>
+                        No deleted vendors
+                    </div>
+                }
+                else
+                {
+                    <table class="table table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Amount</th>
+                                <th class="text-end">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var v in Model.SoftDeletedVendors)
+                            {
+                                <tr data-entity="vendor" data-id="@v.VendorID">
+                                    <td class="fw-medium">@v.VendorName</td>
+                                    <td>@v.VendorEmail</td>
+                                    <td>@v.Amount.ToString("C")</td>
+                                    <td class="text-end">
+                                        <button class="btn btn-sm btn-success me-1 rb-restore"
+                                                data-entity="vendor" data-id="@v.VendorID">
+                                            <i class="bi bi-arrow-counterclockwise"></i> Restore
+                                        </button>
+                                        <button class="btn btn-sm btn-danger rb-delete"
+                                                data-entity="vendor" data-id="@v.VendorID">
+                                            <i class="bi bi-trash-fill"></i> Delete
+                                        </button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+            </div>
+        </div>
+    </div>
+</div>
 
 @section Scripts {
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            var token = $('input[name="__RequestVerificationToken"]').first().val();
+<script>
+$(document).ready(function () {
+    var token = $('input[name="__RequestVerificationToken"]').first().val();
 
-            $(".restoreProduct").click(function () {
-                var id = $(this).data("id");
-                $.ajax({
-                    type: "POST",
-                    url: "/RecycleBin/RestoreProduct/" + id,
-                    data: { __RequestVerificationToken: token },
-                    success: function (response) {
-                        if (response.success) {
-                            $("#message").html("<div class='alert alert-success'>" + response.message + "</div>");
-                            $("tr[data-id='" + id + "']").remove();
-                        } else {
-                            $("#message").html("<div class='alert alert-danger'>" + response.message + "</div>");
-                        }
-                    },
-                    error: function () {
-                        $("#message").html("<div class='alert alert-danger'>Error restoring product.</div>");
-                    }
-                });
-            });
+    function showMsg(success, msg) {
+        var cls = success ? 'alert-success' : 'alert-danger';
+        var icon = success ? 'bi-check-circle-fill' : 'bi-exclamation-triangle-fill';
+        $('#rb-message').html(
+            '<div class="alert ' + cls + ' alert-dismissible fade show d-flex align-items-center gap-2">' +
+            '<i class="bi ' + icon + '"></i><span>' + msg + '</span>' +
+            '<button type="button" class="btn-close ms-auto" data-bs-dismiss="alert"></button></div>'
+        );
+    }
 
-            $(".permanentDeleteProduct").click(function () {
-                var id = $(this).data("id");
-                $.ajax({
-                    type: "POST",
-                    url: "/RecycleBin/PermanentDeleteProduct/" + id,
-                    data: { __RequestVerificationToken: token },
-                    success: function (response) {
-                        if (response.success) {
-                            $("#message").html("<div class='alert alert-success'>" + response.message + "</div>");
-                            $("tr[data-id='" + id + "']").remove();
-                        } else {
-                            $("#message").html("<div class='alert alert-danger'>" + response.message + "</div>");
-                        }
-                    },
-                    error: function () {
-                        $("#message").html("<div class='alert alert-danger'>Error permanently deleting product.</div>");
-                    }
-                });
-            });
+    function capitalize(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
 
-            $(".restoreCategory").click(function () {
-                var id = $(this).data("id");
-                $.ajax({
-                    type: "POST",
-                    url: "/RecycleBin/RestoreCategory/" + id,
-                    data: { __RequestVerificationToken: token },
-                    success: function (response) {
-                        if (response.success) {
-                            $("#message").html("<div class='alert alert-success'>" + response.message + "</div>");
-                            $("tr[data-id='" + id + "']").remove();
-                        } else {
-                            $("#message").html("<div class='alert alert-danger'>" + response.message + "</div>");
-                        }
-                    },
-                    error: function () {
-                        $("#message").html("<div class='alert alert-danger'>Error restoring category.</div>");
-                    }
-                });
-            });
+    $(document).on('click', '.rb-restore', function () {
+        var entity = $(this).data('entity');
+        var id     = $(this).data('id');
+        var row    = $(this).closest('tr');
+        $.post('/RecycleBin/Restore' + capitalize(entity) + '/' + id,
+            { __RequestVerificationToken: token },
+            function (resp) {
+                if (resp.success) { row.fadeOut(300, function () { row.remove(); }); }
+                showMsg(resp.success, resp.message);
+            }).fail(function () { showMsg(false, 'Network error.'); });
+    });
 
-            $(".permanentDeleteCategory").click(function () {
-                var id = $(this).data("id");
-                $.ajax({
-                    type: "POST",
-                    url: "/RecycleBin/PermanentDeleteCategory/" + id,
-                    data: { __RequestVerificationToken: token },
-                    success: function (response) {
-                        if (response.success) {
-                            $("#message").html("<div class='alert alert-success'>" + response.message + "</div>");
-                            $("tr[data-id='" + id + "']").remove();
-                        } else {
-                            $("#message").html("<div class='alert alert-danger'>" + response.message + "</div>");
-                        }
-                    },
-                    error: function () {
-                        $("#message").html("<div class='alert alert-danger'>Error permanently deleting category.</div>");
-                    }
-                });
-            });
-
-            $(".restoreVendor").click(function () {
-                var id = $(this).data("id");
-                $.ajax({
-                    type: "POST",
-                    url: "/RecycleBin/RestoreVendor/" + id,
-                    data: { __RequestVerificationToken: token },
-                    success: function (response) {
-                        if (response.success) {
-                            $("#message").html("<div class='alert alert-success'>" + response.message + "</div>");
-                            $("tr[data-id='" + id + "']").remove();
-                        } else {
-                            $("#message").html("<div class='alert alert-danger'>" + response.message + "</div>");
-                        }
-                    },
-                    error: function () {
-                        $("#message").html("<div class='alert alert-danger'>Error restoring vendor.</div>");
-                    }
-                });
-            });
-
-            $(".permanentDeleteVendor").click(function () {
-                var id = $(this).data("id");
-                $.ajax({
-                    type: "POST",
-                    url: "/RecycleBin/PermanentDeleteVendor/" + id,
-                    data: { __RequestVerificationToken: token },
-                    success: function (response) {
-                        if (response.success) {
-                            $("#message").html("<div class='alert alert-success'>" + response.message + "</div>");
-                            $("tr[data-id='" + id + "']").remove();
-                        } else {
-                            $("#message").html("<div class='alert alert-danger'>" + response.message + "</div>");
-                        }
-                    },
-                    error: function () {
-                        $("#message").html("<div class='alert alert-danger'>Error permanently deleting vendor.</div>");
-                    }
-                });
-            });
-        });
-    </script>
+    $(document).on('click', '.rb-delete', function () {
+        if (!confirm('Permanently delete this item? This cannot be undone.')) return;
+        var entity = $(this).data('entity');
+        var id     = $(this).data('id');
+        var row    = $(this).closest('tr');
+        $.post('/RecycleBin/PermanentDelete' + capitalize(entity) + '/' + id,
+            { __RequestVerificationToken: token },
+            function (resp) {
+                if (resp.success) { row.fadeOut(300, function () { row.remove(); }); }
+                showMsg(resp.success, resp.message);
+            }).fail(function () { showMsg(false, 'Network error.'); });
+    });
+});
+</script>
 }

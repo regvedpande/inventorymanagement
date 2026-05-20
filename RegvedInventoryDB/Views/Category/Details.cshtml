@@ -1,16 +1,39 @@
-﻿@model RegvedInventoryDB.Models.Category
+@model RegvedInventoryDB.Models.Category
 @{
     ViewBag.Title = "Category Details";
+    ViewBag.BreadcrumbParent = "Categories";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Category Details</h2>
-<div>
-    <div>
-        <strong>Category Name:</strong> @Model.CategoryName
-    </div>
-    <div>
-        <strong>Description:</strong> @Model.Description
+<div class="row justify-content-center">
+    <div class="col-md-7">
+        <div class="form-card">
+            <div class="d-flex align-items-center justify-content-between mb-4">
+                <h5 class="fw-bold mb-0">Category Details</h5>
+                <span class="badge bg-success-subtle text-success">Active</span>
+            </div>
+            <dl class="row mb-0">
+                <dt class="col-sm-4 text-muted">ID</dt>
+                <dd class="col-sm-8">@Model.CategoryID</dd>
+
+                <dt class="col-sm-4 text-muted">Name</dt>
+                <dd class="col-sm-8 fw-semibold">@Model.CategoryName</dd>
+
+                <dt class="col-sm-4 text-muted">Description</dt>
+                <dd class="col-sm-8">@(string.IsNullOrWhiteSpace(Model.Description) ? "—" : Model.Description)</dd>
+            </dl>
+            <hr />
+            <div class="d-flex gap-2">
+                <a asp-action="Edit" asp-route-id="@Model.CategoryID" class="btn btn-warning">
+                    <i class="bi bi-pencil me-1"></i> Edit
+                </a>
+                <a asp-action="Delete" asp-route-id="@Model.CategoryID" class="btn btn-outline-danger">
+                    <i class="bi bi-trash me-1"></i> Delete
+                </a>
+                <a asp-action="Index" class="btn btn-outline-secondary ms-auto">
+                    <i class="bi bi-arrow-left me-1"></i> Back
+                </a>
+            </div>
+        </div>
     </div>
 </div>
-<a class="btn btn-secondary" href="@Url.Action("Index", "Category")">Back to List</a>

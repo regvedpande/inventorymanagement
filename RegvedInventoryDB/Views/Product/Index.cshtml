@@ -1,64 +1,113 @@
-﻿@model IEnumerable<RegvedInventoryDB.Models.Product>
+@model IEnumerable<RegvedInventoryDB.Models.Product>
 @{
     ViewBag.Title = "Products";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    int lowStockThreshold = 10;
 }
 
-<h2>Products</h2>
-
-@if (TempData["Success"] != null)
-{
-    <div class="alert alert-success">@TempData["Success"]</div>
-}
-
-@if (TempData["Error"] != null)
-{
-    <div class="alert alert-danger">@TempData["Error"]</div>
-}
-
-<p>
-    <a asp-action="Create" class="btn btn-primary">Create New Product</a>
-</p>
-
-@if (Model != null && Model.Any())
-{
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Stock</th>
-                <th>Manufacture Date</th>
-                <th>Category</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>@item.ProductID</td>
-                    <td>@item.ProductName</td>
-                    <td>@item.Description</td>
-                    <td>@item.Price.ToString("C")</td>
-                    <td>@item.Stock</td>
-                    <td>@item.ManufactureDate.ToShortDateString()</td>
-                    <td>@item.CategoryName</td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.ProductID" class="btn btn-sm btn-primary">Edit</a>
-                        <a asp-action="Details" asp-route-id="@item.ProductID" class="btn btn-sm btn-info">Details</a>
-                        <a asp-action="Delete" asp-route-id="@item.ProductID" class="btn btn-sm btn-danger">Delete</a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
-else
-{
-    <div class="alert alert-info">
-        No products found. Please <a asp-action="Create" class="alert-link">create a new product</a>.
+<div class="d-flex align-items-center justify-content-between mb-4">
+    <div>
+        <h4 class="mb-0 fw-bold">Products</h4>
+        <small class="text-muted">Manage your product inventory</small>
     </div>
+    <a asp-action="Create" class="btn btn-primary">
+        <i class="bi bi-plus-lg me-1"></i> Add Product
+    </a>
+</div>
+
+@if (Model.Any(p => p.Stock == 0))
+{
+    <div class="alert alert-danger d-flex align-items-center gap-2 mb-3">
+        <i class="bi bi-exclamation-octagon-fill"></i>
+        <span><strong>@Model.Count(p => p.Stock == 0) product(s) are out of stock.</strong> Please restock immediately.</span>
+    </div>
+}
+else if (Model.Any(p => p.Stock <= lowStockThreshold))
+{
+    <div class="alert alert-warning d-flex align-items-center gap-2 mb-3">
+        <i class="bi bi-exclamation-triangle-fill"></i>
+        <span><strong>@Model.Count(p => p.Stock <= lowStockThreshold) product(s) have low stock</strong> (≤ @lowStockThreshold units).</span>
+    </div>
+}
+
+<div class="card table-card">
+    <div class="card-body p-0">
+        <table id="productsTable" class="table table-hover mb-0">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Stock</th>
+                    <th>Mfg. Date</th>
+                    <th class="text-end">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var p in Model)
+                {
+                    <tr>
+                        <td>
+                            <span class="fw-medium">@p.ProductName</span>
+                            @if (!string.IsNullOrWhiteSpace(p.Description))
+                            {
+                                <br /><small class="text-muted">@p.Description</small>
+                            }
+                        </td>
+                        <td><span class="badge bg-light text-dark border">@p.CategoryName</span></td>
+                        <td class="fw-semibold">@p.Price.ToString("C")</td>
+                        <td>
+                            @if (p.Stock == 0)
+                            {
+                                <span class="badge stock-critical">Out of Stock</span>
+                            }
+                            else if (p.Stock <= lowStockThreshold)
+                            {
+                                <span class="badge stock-low">@p.Stock</span>
+                            }
+                            else
+                            {
+                                <span class="badge stock-ok">@p.Stock</span>
+                            }
+                        </td>
+                        <td class="text-muted">@p.ManufactureDate.ToString("dd MMM yyyy")</td>
+                        <td class="text-end">
+                            <a asp-action="Details" asp-route-id="@p.ProductID"
+                               class="btn btn-sm btn-outline-info me-1" title="Details">
+                                <i class="bi bi-eye"></i>
+                            </a>
+                            <a asp-action="Edit" asp-route-id="@p.ProductID"
+                               class="btn btn-sm btn-outline-warning me-1" title="Edit">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+                            <a asp-action="Delete" asp-route-id="@p.ProductID"
+                               class="btn btn-sm btn-outline-danger" title="Delete">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@if (!Model.Any())
+{
+    <div class="text-center py-5 text-muted">
+        <i class="bi bi-box-seam fs-1 d-block mb-2 opacity-25"></i>
+        <p>No products found. <a asp-action="Create" class="alert-link">Create your first product.</a></p>
+    </div>
+}
+
+@section Scripts {
+<script>
+    $(document).ready(function () {
+        $('#productsTable').DataTable({
+            pageLength: 15,
+            order: [[0, 'asc']],
+            columnDefs: [{ orderable: false, targets: 5 }]
+        });
+    });
+</script>
 }

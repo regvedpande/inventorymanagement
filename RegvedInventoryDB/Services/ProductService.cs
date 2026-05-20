@@ -32,7 +32,7 @@ namespace RegvedInventoryDB.Services
             }
         }
 
-        public async Task<Product> GetProductByIdAsync(int id)
+        public async Task<Product?> GetProductByIdAsync(int id)
         {
             try
             {

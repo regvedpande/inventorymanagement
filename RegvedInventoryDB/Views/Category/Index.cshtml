@@ -1,37 +1,76 @@
-﻿@model List<RegvedInventoryDB.Models.Category>
+@model List<RegvedInventoryDB.Models.Category>
 @{
-    ViewBag.Title = "Category List";
+    ViewBag.Title = "Categories";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Category List</h2>
-<a class="btn btn-primary mb-3" href="@Url.Action("Create", "Category")">Add New Category</a>
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>Category Name</th>
-            <th>Description</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @{
-            int i = 1;
-        }
-        @foreach (var category in Model)
-        {
-            <tr>
-                <td>@i</td>
-                <td>@category.CategoryName</td>
-                <td>@category.Description</td>
-                <td>
-                    <a class="btn btn-info btn-sm" href="@Url.Action("Details", "Category", new { id = category.CategoryID })">Details</a>
-                    <a class="btn btn-warning btn-sm" href="@Url.Action("Edit", "Category", new { id = category.CategoryID })">Edit</a>
-                    <a class="btn btn-danger btn-sm" href="@Url.Action("Delete", "Category", new { id = category.CategoryID })">Delete</a>
-                </td>
-            </tr>
-            i++;
-        }
-    </tbody>
-</table>
+<div class="d-flex align-items-center justify-content-between mb-4">
+    <div>
+        <h4 class="mb-0 fw-bold">Categories</h4>
+        <small class="text-muted">Manage product categories</small>
+    </div>
+    <a href="@Url.Action("Create","Category")" class="btn btn-primary">
+        <i class="bi bi-plus-lg me-1"></i> Add Category
+    </a>
+</div>
+
+<div class="card table-card">
+    <div class="card-body p-0">
+        <table id="categoriesTable" class="table table-hover mb-0">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Category Name</th>
+                    <th>Description</th>
+                    <th class="text-end">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{ int i = 1; }
+                @foreach (var c in Model)
+                {
+                    <tr>
+                        <td class="text-muted">@i</td>
+                        <td class="fw-medium">@c.CategoryName</td>
+                        <td class="text-muted">@(string.IsNullOrWhiteSpace(c.Description) ? "—" : c.Description)</td>
+                        <td class="text-end">
+                            <a href="@Url.Action("Details","Category", new {id=c.CategoryID})"
+                               class="btn btn-sm btn-outline-info me-1" title="Details">
+                                <i class="bi bi-eye"></i>
+                            </a>
+                            <a href="@Url.Action("Edit","Category", new {id=c.CategoryID})"
+                               class="btn btn-sm btn-outline-warning me-1" title="Edit">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+                            <a href="@Url.Action("Delete","Category", new {id=c.CategoryID})"
+                               class="btn btn-sm btn-outline-danger" title="Delete">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    i++;
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@if (!Model.Any())
+{
+    <div class="text-center py-5 text-muted">
+        <i class="bi bi-tags fs-1 d-block mb-2 opacity-25"></i>
+        <p>No categories found. <a href="@Url.Action("Create","Category")">Create your first category.</a></p>
+    </div>
+}
+
+@section Scripts {
+<script>
+    $(document).ready(function () {
+        $('#categoriesTable').DataTable({
+            pageLength: 10,
+            order: [[1, 'asc']],
+            language: { search: '<i class="bi bi-search me-1"></i>Search:' }
+        });
+    });
+</script>
+}
