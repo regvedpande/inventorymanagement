@@ -16,75 +16,79 @@
 
 <div class="card table-card">
     <div class="card-body p-0">
-        <table id="vendorsTable" class="table table-hover mb-0">
-            <thead>
-                <tr>
-                    <th>Vendor</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Product</th>
-                    <th>Qty</th>
-                    <th>Price/Unit</th>
-                    <th>Amount</th>
-                    <th class="text-end">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var v in Model)
-                {
+        @if (!Model.Any())
+        {
+            <div class="text-center py-5 text-muted">
+                <i class="bi bi-truck fs-1 d-block mb-2 opacity-25"></i>
+                <p>No vendors found. <a asp-action="Create">Add your first vendor.</a></p>
+            </div>
+        }
+        else
+        {
+            <table id="vendorsTable" class="table table-hover mb-0">
+                <thead>
                     <tr>
-                        <td>
-                            <span class="fw-medium">@v.VendorName</span>
-                            @if (!string.IsNullOrWhiteSpace(v.Address))
-                            {
-                                <br /><small class="text-muted"><i class="bi bi-geo-alt"></i> @v.Address</small>
-                            }
-                        </td>
-                        <td><a href="mailto:@v.VendorEmail" class="text-decoration-none">@v.VendorEmail</a></td>
-                        <td>@v.PhoneNumber</td>
-                        <td>
-                            <span class="badge bg-light text-dark border">@(v.ProductName ?? v.ProductID.ToString())</span>
-                        </td>
-                        <td class="fw-semibold">@v.Quantity</td>
-                        <td>@v.PricePerUnit.ToString("C")</td>
-                        <td class="fw-bold text-success">@v.Amount.ToString("C")</td>
-                        <td class="text-end">
-                            <a asp-controller="Vendor" asp-action="Details" asp-route-id="@v.VendorID"
-                               class="btn btn-sm btn-outline-info me-1" title="Details">
-                                <i class="bi bi-eye"></i>
-                            </a>
-                            <a asp-controller="Vendor" asp-action="Edit" asp-route-id="@v.VendorID"
-                               class="btn btn-sm btn-outline-warning me-1" title="Edit">
-                                <i class="bi bi-pencil"></i>
-                            </a>
-                            <a asp-controller="Vendor" asp-action="Delete" asp-route-id="@v.VendorID"
-                               class="btn btn-sm btn-outline-danger" title="Delete">
-                                <i class="bi bi-trash"></i>
-                            </a>
-                        </td>
+                        <th>Vendor</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Product</th>
+                        <th>Qty</th>
+                        <th>Price/Unit</th>
+                        <th>Amount</th>
+                        <th class="text-end">Actions</th>
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach (var v in Model)
+                    {
+                        <tr>
+                            <td>
+                                <span class="fw-medium">@v.VendorName</span>
+                                @if (!string.IsNullOrWhiteSpace(v.Address))
+                                {
+                                    <br /><small class="text-muted"><i class="bi bi-geo-alt"></i> @v.Address</small>
+                                }
+                            </td>
+                            <td><a href="mailto:@v.VendorEmail" class="text-decoration-none">@v.VendorEmail</a></td>
+                            <td>@v.PhoneNumber</td>
+                            <td>
+                                <span class="badge bg-light text-dark border">@(v.ProductName ?? v.ProductID.ToString())</span>
+                            </td>
+                            <td class="fw-semibold">@v.Quantity</td>
+                            <td>@v.PricePerUnit.ToString("C")</td>
+                            <td class="fw-bold text-success">@v.Amount.ToString("C")</td>
+                            <td class="text-end">
+                                <a asp-action="Details" asp-route-id="@v.VendorID"
+                                   class="btn btn-sm btn-outline-info me-1" title="Details">
+                                    <i class="bi bi-eye"></i>
+                                </a>
+                                <a asp-action="Edit" asp-route-id="@v.VendorID"
+                                   class="btn btn-sm btn-outline-warning me-1" title="Edit">
+                                    <i class="bi bi-pencil"></i>
+                                </a>
+                                <a asp-action="Delete" asp-route-id="@v.VendorID"
+                                   class="btn btn-sm btn-outline-danger" title="Delete">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
     </div>
 </div>
-
-@if (!Model.Any())
-{
-    <div class="text-center py-5 text-muted">
-        <i class="bi bi-truck fs-1 d-block mb-2 opacity-25"></i>
-        <p>No vendors found. <a asp-action="Create">Add your first vendor.</a></p>
-    </div>
-}
 
 @section Scripts {
 <script>
     $(document).ready(function () {
-        $('#vendorsTable').DataTable({
-            pageLength: 15,
-            order: [[0, 'asc']],
-            columnDefs: [{ orderable: false, targets: 7 }]
-        });
+        if ($('#vendorsTable').length) {
+            $('#vendorsTable').DataTable({
+                pageLength: 15,
+                order: [[0, 'asc']],
+                columnDefs: [{ orderable: false, targets: 7 }]
+            });
+        }
     });
 </script>
 }

@@ -126,9 +126,22 @@
         /* Footer */
         footer { background: #fff; border-top: 1px solid #e5e7eb; padding: .8rem 1.5rem; font-size: .82rem; color: #6c757d; }
 
+        .sidebar-overlay {
+            display: none;
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,.4);
+            z-index: 999;
+        }
+        .sidebar-overlay.show { display: block; }
+
         @@media (max-width: 768px) {
             .sidebar { width: 0; overflow: hidden; }
+            .sidebar.show { width: var(--sidebar-width); overflow-y: auto; }
             .main-wrapper { margin-left: 0; }
+            .topbar-toggle { display: flex !important; }
+        }
+        @@media (min-width: 769px) {
+            .topbar-toggle { display: none !important; }
         }
     </style>
 </head>
@@ -169,10 +182,15 @@
     </div>
 </nav>
 
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
 <!-- Main wrapper -->
 <div class="main-wrapper">
     <!-- Topbar -->
     <div class="topbar">
+        <button class="btn btn-sm btn-outline-secondary me-3 topbar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+            <i class="bi bi-list fs-5"></i>
+        </button>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="@Url.Action("Index","Home")">Home</a></li>
@@ -230,5 +248,21 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
 
 @RenderSection("Scripts", required: false)
+<script>
+(function () {
+    var toggle  = document.getElementById('sidebarToggle');
+    var sidebar = document.querySelector('.sidebar');
+    var overlay = document.getElementById('sidebarOverlay');
+    if (!toggle || !sidebar || !overlay) return;
+    toggle.addEventListener('click', function () {
+        sidebar.classList.toggle('show');
+        overlay.classList.toggle('show');
+    });
+    overlay.addEventListener('click', function () {
+        sidebar.classList.remove('show');
+        overlay.classList.remove('show');
+    });
+})();
+</script>
 </body>
 </html>

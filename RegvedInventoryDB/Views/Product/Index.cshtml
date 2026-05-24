@@ -32,82 +32,86 @@ else if (Model.Any(p => p.Stock <= lowStockThreshold))
 
 <div class="card table-card">
     <div class="card-body p-0">
-        <table id="productsTable" class="table table-hover mb-0">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Category</th>
-                    <th>Price</th>
-                    <th>Stock</th>
-                    <th>Mfg. Date</th>
-                    <th class="text-end">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var p in Model)
-                {
+        @if (!Model.Any())
+        {
+            <div class="text-center py-5 text-muted">
+                <i class="bi bi-box-seam fs-1 d-block mb-2 opacity-25"></i>
+                <p>No products found. <a asp-action="Create" class="alert-link">Create your first product.</a></p>
+            </div>
+        }
+        else
+        {
+            <table id="productsTable" class="table table-hover mb-0">
+                <thead>
                     <tr>
-                        <td>
-                            <span class="fw-medium">@p.ProductName</span>
-                            @if (!string.IsNullOrWhiteSpace(p.Description))
-                            {
-                                <br /><small class="text-muted">@p.Description</small>
-                            }
-                        </td>
-                        <td><span class="badge bg-light text-dark border">@p.CategoryName</span></td>
-                        <td class="fw-semibold">@p.Price.ToString("C")</td>
-                        <td>
-                            @if (p.Stock == 0)
-                            {
-                                <span class="badge stock-critical">Out of Stock</span>
-                            }
-                            else if (p.Stock <= lowStockThreshold)
-                            {
-                                <span class="badge stock-low">@p.Stock</span>
-                            }
-                            else
-                            {
-                                <span class="badge stock-ok">@p.Stock</span>
-                            }
-                        </td>
-                        <td class="text-muted">@p.ManufactureDate.ToString("dd MMM yyyy")</td>
-                        <td class="text-end">
-                            <a asp-action="Details" asp-route-id="@p.ProductID"
-                               class="btn btn-sm btn-outline-info me-1" title="Details">
-                                <i class="bi bi-eye"></i>
-                            </a>
-                            <a asp-action="Edit" asp-route-id="@p.ProductID"
-                               class="btn btn-sm btn-outline-warning me-1" title="Edit">
-                                <i class="bi bi-pencil"></i>
-                            </a>
-                            <a asp-action="Delete" asp-route-id="@p.ProductID"
-                               class="btn btn-sm btn-outline-danger" title="Delete">
-                                <i class="bi bi-trash"></i>
-                            </a>
-                        </td>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Stock</th>
+                        <th>Mfg. Date</th>
+                        <th class="text-end">Actions</th>
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach (var p in Model)
+                    {
+                        <tr>
+                            <td>
+                                <span class="fw-medium">@p.ProductName</span>
+                                @if (!string.IsNullOrWhiteSpace(p.Description))
+                                {
+                                    <br /><small class="text-muted">@p.Description</small>
+                                }
+                            </td>
+                            <td><span class="badge bg-light text-dark border">@p.CategoryName</span></td>
+                            <td class="fw-semibold">@p.Price.ToString("C")</td>
+                            <td>
+                                @if (p.Stock == 0)
+                                {
+                                    <span class="badge stock-critical">Out of Stock</span>
+                                }
+                                else if (p.Stock <= lowStockThreshold)
+                                {
+                                    <span class="badge stock-low">@p.Stock</span>
+                                }
+                                else
+                                {
+                                    <span class="badge stock-ok">@p.Stock</span>
+                                }
+                            </td>
+                            <td class="text-muted">@p.ManufactureDate.ToString("dd MMM yyyy")</td>
+                            <td class="text-end">
+                                <a asp-action="Details" asp-route-id="@p.ProductID"
+                                   class="btn btn-sm btn-outline-info me-1" title="Details">
+                                    <i class="bi bi-eye"></i>
+                                </a>
+                                <a asp-action="Edit" asp-route-id="@p.ProductID"
+                                   class="btn btn-sm btn-outline-warning me-1" title="Edit">
+                                    <i class="bi bi-pencil"></i>
+                                </a>
+                                <a asp-action="Delete" asp-route-id="@p.ProductID"
+                                   class="btn btn-sm btn-outline-danger" title="Delete">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
     </div>
 </div>
-
-@if (!Model.Any())
-{
-    <div class="text-center py-5 text-muted">
-        <i class="bi bi-box-seam fs-1 d-block mb-2 opacity-25"></i>
-        <p>No products found. <a asp-action="Create" class="alert-link">Create your first product.</a></p>
-    </div>
-}
 
 @section Scripts {
 <script>
     $(document).ready(function () {
-        $('#productsTable').DataTable({
-            pageLength: 15,
-            order: [[0, 'asc']],
-            columnDefs: [{ orderable: false, targets: 5 }]
-        });
+        if ($('#productsTable').length) {
+            $('#productsTable').DataTable({
+                pageLength: 15,
+                order: [[0, 'asc']],
+                columnDefs: [{ orderable: false, targets: 5 }]
+            });
+        }
     });
 </script>
 }

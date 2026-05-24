@@ -196,7 +196,7 @@
                                         </a>
                                         <br/><small class="text-muted">@p.CategoryName</small>
                                     </td>
-                                    <td class="fw-semibold">@p.Price.ToString("C0")</td>
+                                    <td class="fw-semibold">@p.Price.ToString("C")</td>
                                     <td>
                                         <span class="badge @(p.Stock == 0 ? "stock-critical" : p.Stock <= 10 ? "stock-low" : "stock-ok")">
                                             @p.Stock

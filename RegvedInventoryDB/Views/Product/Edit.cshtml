@@ -35,7 +35,8 @@
                     </div>
                     <div class="col-md-6">
                         <label asp-for="ProductModelSingle.ManufactureDate" class="form-label fw-medium"></label>
-                        <input asp-for="ProductModelSingle.ManufactureDate" class="form-control" type="date" />
+                        <input asp-for="ProductModelSingle.ManufactureDate" class="form-control" type="date"
+                               max="@DateTime.Today.ToString("yyyy-MM-dd")" />
                         <span asp-validation-for="ProductModelSingle.ManufactureDate" class="text-danger small"></span>
                     </div>
                     <div class="col-md-6">
